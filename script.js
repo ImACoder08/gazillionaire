@@ -8,6 +8,7 @@ const playerCount = function () {
 playerCount();
 
 //comment
+console.log('hello');
 let playerNEl = document.querySelector('.playerN');
 let proffessionEl = document.querySelector('.proffession');
 let salaryEl = document.querySelector('.salary');
