@@ -1,3 +1,4 @@
+//Player Count
 let players;
 const playerCount = function () {
   players = Number(prompt('How many Players? (2-8)'));
@@ -8,7 +9,9 @@ const playerCount = function () {
 playerCount();
 
 //comment
-console.log('hello');
+//Variables
+
+//Elemens
 let playerNEl = document.querySelector('.playerN');
 let proffessionEl = document.querySelector('.proffession');
 let salaryEl = document.querySelector('.salary');
@@ -22,15 +25,49 @@ let realBusinessEl5 = document.querySelector('.realBusiness5');
 let realBusinessEl6 = document.querySelector('.realBusiness6');
 let totalEl = document.querySelector('.total');
 let expensesEl = document.querySelector('.expenses');
-
 let myt4uEl = document.querySelector('.myt4u');
 let ok4uEl = document.querySelector('.ok4u');
 let gro4uEl = document.querySelector('.gro4u');
 let gr8El = document.querySelector('.gr8');
 let lymp4uEl = document.querySelector('.lymp4u');
-
 let passiveEl = document.querySelector('.passive');
+let sellMyt4uEl = document.querySelector('.sell--myt4u');
+let sellOk4uEl = document.querySelector('.sell--ok4u');
+let sellGro4uEl = document.querySelector('.sell--gro4u');
+let sellGr8El = document.querySelector('.sell--gr8');
+let sellLymp4uEl = document.querySelector('.sell--lymp4u');
+let buyMyt4uEl = document.querySelector('.buy--myt4u');
+let buyGro4uEl = document.querySelector('.buy--gro4u');
+let buyGr8El = document.querySelector('.buy--gr8');
+let buyOk4uEl = document.querySelector('.buy--ok4u');
+let buyLymp4uEl = document.querySelector('.buy--lymp4u');
+let myt4uRangeEl = document.querySelector('.myt4uRange');
+let gr8RangeEl = document.querySelector('.gr8Range');
+let gro4uRangeEl = document.querySelector('.gro4uRange');
+let ok4uRangeEl = document.querySelector('.ok4uRange');
+let lymp4uRangeEl = document.querySelector('.lymp4uRange');
+let okButton = document.querySelector('.ok');
+let btn50 = document.querySelector('.fifty');
+let btn100 = document.querySelector('.hundred');
+let btn500 = document.querySelector('.five--hundred');
+let btn1000 = document.querySelector('.one--thousand');
+let btn5000 = document.querySelector('.five--thousand');
+let bellEl = document.querySelector('.bell');
+let turnEl = document.querySelector('.turn');
+let cashEl = document.querySelector('.cash');
+let nextBtn = document.querySelector('.next');
+let myt4uCostEl = document.querySelector('.myt4u--cost');
+let gro4uCostEl = document.querySelector('.gro4u--cost');
+let gr8CostEl = document.querySelector('.gr8--cost');
+let ok4uCostEl = document.querySelector('.ok4u--cost');
+let lymp4uCostEl = document.querySelector('.lymp4u--cost');
+let myt4uboughtEl = document.querySelector('.myt4uBuyPrice');
+let ok4uboughtEl = document.querySelector('.ok4uBuyPrice');
+let gr8boughtEl = document.querySelector('.gr8BuyPrice');
+let gro4uboughtEl = document.querySelector('.gro4uBuyPrice');
+let lymp4uboughtEl = document.querySelector('.lymp4uBuyPrice');
 
+//Booleans
 let driverBought = false;
 let teacherBought = false;
 let nurseBought = false;
@@ -43,82 +80,257 @@ let engineerBought = false;
 let doctorBought = false;
 let businessManagerBought = false;
 let pilotBought = false;
-let dice = Math.trunc(Math.random() * 12) + 1;
-let bellEl = document.querySelector('.bell');
-
-let sellMyt4uEl = document.querySelector('.sell--myt4u');
-let sellOk4uEl = document.querySelector('.sell--ok4u');
-let sellGro4uEl = document.querySelector('.sell--gro4u');
-let sellGr8El = document.querySelector('.sell--gr8');
-let sellLymp4uEl = document.querySelector('.sell--lymp4u');
-
-let buyMyt4uEl = document.querySelector('.buy--myt4u');
-let buyGro4uEl = document.querySelector('.buy--gro4u');
-let buyGr8El = document.querySelector('.buy--gr8');
-let buyOk4uEl = document.querySelector('.buy--ok4u');
-let buyLymp4uEl = document.querySelector('.buy--lymp4u');
-let okButton = document.querySelector('.ok');
-let btn50 = document.querySelector('.fifty');
-let btn100 = document.querySelector('.hundred');
-let btn500 = document.querySelector('.five--hundred');
-let btn1000 = document.querySelector('.one--thousand');
-let btn5000 = document.querySelector('.five--thousand');
-btn50.classList.add('hidden');
-btn100.classList.add('hidden');
-btn500.classList.add('hidden');
-btn1000.classList.add('hidden');
-btn5000.classList.add('hidden');
+let myt4uPick = false;
+let ok4uPick = false;
+let gr8Pick = false;
+let gro4uPick = false;
+let lymp4uPick = false;
 let buying = false;
 let selling = false;
 let buyOpen = false;
 let sellOpen = false;
-
-let turnEl = document.querySelector('.turn');
-let turn = 1;
-turnEl.textContent = turn;
-
 let buyingMyt4u = false;
 let buyingGro4u = false;
 let buyingGr8 = false;
 let buyingOk4u = false;
 let buyingLymp4u = false;
-
 let sellingMyt4u = false;
 let sellingGro4u = false;
 let sellingGr8 = false;
 let sellingOk4u = false;
 let sellingLymp4u = false;
-
 let positive = false;
 let negative = false;
 
-let cashEl = document.querySelector('.cash');
-let nextBtn = document.querySelector('.next');
+//Dice
+let dice = Math.trunc(Math.random() * 12) + 1;
 
-let myt4uCostEl = document.querySelector('.myt4u--cost');
-let gro4uCostEl = document.querySelector('.gro4u--cost');
-let gr8CostEl = document.querySelector('.gr8--cost');
-let ok4uCostEl = document.querySelector('.ok4u--cost');
-let lymp4uCostEl = document.querySelector('.lymp4u--cost');
+//Adding Classlists
+btn50.classList.add('hidden');
+btn100.classList.add('hidden');
+btn500.classList.add('hidden');
+btn1000.classList.add('hidden');
+btn5000.classList.add('hidden');
 
-let myt4uCost = Math.trunc(Math.random() * 45) + 5;
+// let myt4uCost =
+//   Math.trunc(Math.random() * myt4u.stock.highRange) + myt4u.stock.lowRange;
+// myt4uCostEl.textContent = myt4uCost;
+// let gro4uCost =
+//   Math.trunc(Math.random() * gro4u.stock.highRange) + gro4u.stock.lowRange;
+// gro4uCostEl.textContent = gro4uCost;
+// let gr8Cost =
+//   Math.trunc(Math.random() * gr8.stock.highRange) + gr8.stock.lowRange;
+// gr8CostEl.textContent = gr8Cost;
+// let ok4uCost =
+//   Math.trunc(Math.random() * ok4u.stock.highRange) + ok4u.stock.lowRange;
+// ok4uCostEl.textContent = ok4uCost;
+// let lymp4uCost =
+//   Math.trunc(Math.random() * lymp4u.stock.highRange) + lymp4u.stock.lowRange;
+// lymp4uCostEl.textContent = lymp4uCost;
+// ok4uCostEl.textContent = ok4uCost;
+
+//Number Declares
+let turn = 1;
+turnEl.textContent = turn;
+
+const myt4u = {
+  stock: 0,
+};
+
+const ok4u = {
+  stock: 0,
+};
+const gr8 = {
+  stock: 0,
+};
+const gro4u = {
+  stock: 0,
+};
+const lymp4u = {
+  stock: 0,
+};
+let pick = 0;
+let lowRange = Math.trunc(Math.random() * 30 + 5);
+highRange = Math.trunc(Math.random() * 50 + 50);
+const setRange = function () {
+  lowRange = Math.trunc(Math.random() * 30 + 5);
+  highRange = Math.trunc(Math.random() * 50 + 50);
+};
+const stock1 = {
+  lowRange: lowRange,
+  highRange: highRange,
+  second: Math.trunc(highRange / 4.5) + lowRange - 5,
+  third: Math.trunc(highRange / 2.5) + lowRange - 5,
+  fourth: Math.trunc(highRange / 1.5) + lowRange - 5,
+};
+lowRange = Math.trunc(Math.random() * 10 + 5);
+highRange = Math.trunc(Math.random() * 20 + 30);
+
+const stock2 = {
+  lowRange: lowRange,
+  highRange: highRange,
+  second: Math.trunc(highRange / 4.5) + lowRange - 5,
+  third: Math.trunc(highRange / 2.5) + lowRange - 5,
+  fourth: Math.trunc(highRange / 1.5) + lowRange - 5,
+};
+lowRange = Math.trunc(Math.random() * 35 + 10);
+highRange = Math.trunc(Math.random() * 210 + 20);
+const stock3 = {
+  lowRange: lowRange,
+  highRange: highRange,
+  second: Math.trunc(highRange / 4.5) + lowRange - 5,
+  third: Math.trunc(highRange / 2.5) + lowRange - 5,
+  fourth: Math.trunc(highRange / 1.5) + lowRange - 5,
+};
+lowRange = Math.trunc(Math.random() * 35 + 10);
+highRange = Math.trunc(Math.random() * 120 + 50);
+const stock4 = {
+  lowRange: lowRange,
+  highRange: highRange,
+  second: Math.trunc(highRange / 4.5) + lowRange - 5,
+  third: Math.trunc(highRange / 2.5) + lowRange - 5,
+  fourth: Math.trunc(highRange / 1.5) + lowRange - 5,
+};
+lowRange = Math.trunc(Math.random() * 35 + 10);
+highRange = Math.trunc(Math.random() * 150 + 50);
+const stock5 = {
+  lowRange: lowRange,
+  highRange: highRange,
+  second: Math.trunc(highRange / 4.5) + lowRange - 5,
+  third: Math.trunc(highRange / 2.5) + lowRange - 5,
+  fourth: Math.trunc(highRange / 1.5) + lowRange - 5,
+};
+const pickStock1 = function () {
+  pick = Math.trunc(Math.random() * 5 + 1);
+  if (pick == 1 && !myt4uPick) {
+    myt4u.stock = stock1;
+    myt4uPick = true;
+  } else if (pick == 2 && !gro4uPick) {
+    gro4u.stock = stock1;
+    gro4uPick = true;
+  } else if (pick == 3 && !gr8Pick) {
+    gr8.stock = stock1;
+    gr8Pick = true;
+  } else if (pick == 4 && !ok4uPick) {
+    ok4u.stock = stock1;
+    ok4uPick = true;
+  } else if (pick == 5 && !lymp4uPick) {
+    lymp4u.stock = stock1;
+    lymp4uPick = true;
+  }
+};
+const pickStock2 = function () {
+  pick = Math.trunc(Math.random() * 5 + 1);
+  if (pick == 1 && !myt4uPick) {
+    myt4u.stock = stock2;
+    myt4uPick = true;
+  } else if (pick == 2 && !gro4uPick) {
+    gro4u.stock = stock2;
+    gro4uPick = true;
+  } else if (pick == 3 && !gr8Pick) {
+    gr8.stock = stock2;
+    gr8Pick = true;
+  } else if (pick == 4 && !ok4uPick) {
+    ok4u.stock = stock2;
+    ok4uPick = true;
+  } else if (pick == 5 && !lymp4uPick) {
+    lymp4u.stock = stock2;
+    lymp4uPick = true;
+  } else {
+    pickStock2();
+    console.log('try again');
+  }
+};
+const pickStock3 = function () {
+  pick = Math.trunc(Math.random() * 5 + 1);
+  if (pick == 1 && !myt4uPick) {
+    myt4u.stock = stock3;
+    myt4uPick = true;
+  } else if (pick == 2 && !gro4uPick) {
+    gro4u.stock = stock3;
+    gro4uPick = true;
+  } else if (pick == 3 && !gr8Pick) {
+    gr8.stock = stock3;
+    gr8Pick = true;
+  } else if (pick == 4 && !ok4uPick) {
+    ok4u.stock = stock3;
+    ok4uPick = true;
+  } else if (pick == 5 && !lymp4uPick) {
+    lymp4u.stock = stock3;
+    lymp4uPick = true;
+  } else {
+    pickStock3();
+    console.log('try again');
+  }
+};
+
+const pickStock4 = function () {
+  pick = Math.trunc(Math.random() * 5 + 1);
+  if (pick == 1 && !myt4uPick) {
+    myt4u.stock = stock4;
+    myt4uPick = true;
+  } else if (pick == 2 && !gro4uPick) {
+    gro4u.stock = stock4;
+    gro4uPick = true;
+  } else if (pick == 3 && !gr8Pick) {
+    gr8.stock = stock4;
+    gr8Pick = true;
+  } else if (pick == 4 && !ok4uPick) {
+    ok4u.stock = stock4;
+    ok4uPick = true;
+  } else if (pick == 5 && !lymp4uPick) {
+    lymp4u.stock = stock4;
+    lymp4uPick = true;
+  } else {
+    pickStock4();
+    console.log('try again');
+  }
+};
+const pickStock5 = function () {
+  if (!myt4uPick) {
+    myt4u.stock = stock5;
+    myt4uPick = true;
+  } else if (!gro4uPick) {
+    gro4u.stock = stock5;
+    gro4uPick = true;
+  } else if (!gr8Pick) {
+    gr8.stock = stock5;
+    gr8Pick = true;
+  } else if (!ok4uPick) {
+    ok4u.stock = stock5;
+    ok4uPick = true;
+  } else if (!lymp4uPick) {
+    lymp4u.stock = stock5;
+    lymp4uPick = true;
+  }
+};
+pickStock1();
+pickStock2();
+pickStock3();
+pickStock4();
+pickStock5();
+myt4uCost =
+  Math.trunc(Math.random() * myt4u.stock.highRange) + myt4u.stock.lowRange;
 myt4uCostEl.textContent = myt4uCost;
-
-let gro4uCost = Math.trunc(Math.random() * 120) + 80;
+gro4uCost =
+  Math.trunc(Math.random() * gro4u.stock.highRange) + gro4u.stock.lowRange;
 gro4uCostEl.textContent = gro4uCost;
-let gr8Cost = Math.trunc(Math.random() * 45) + 15;
+gr8Cost = Math.trunc(Math.random() * gr8.stock.highRange) + gr8.stock.lowRange;
 gr8CostEl.textContent = gr8Cost;
-let ok4uCost = Math.trunc(Math.random() * 15) + 15;
+ok4uCost =
+  Math.trunc(Math.random() * ok4u.stock.highRange) + ok4u.stock.lowRange;
 ok4uCostEl.textContent = ok4uCost;
-let lymp4uCost = Math.trunc(Math.random() * 60) + 10;
+lymp4uCost =
+  Math.trunc(Math.random() * lymp4u.stock.highRange) + lymp4u.stock.lowRange;
 lymp4uCostEl.textContent = lymp4uCost;
 ok4uCostEl.textContent = ok4uCost;
-
+//Modal/ Doodad
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.close-modal');
 modal.classList.add('hidden');
 overlay.classList.add('hidden');
+okButton.classList.add('hidden');
 const openModal = function () {
   modal.classList.remove('hidden');
   overlay.classList.remove('hidden');
@@ -322,7 +534,6 @@ doodadArr.push(
   doodad35,
   doodad36
 );
-console.log(doodadArr);
 
 const pilot = {
   proffession: 'Pilot',
@@ -603,40 +814,155 @@ const driver = {
 const player1 = {
   number: 1,
   proffession: 'homeless',
+  myt4uCost: [],
+  gro4uCost: [],
+  gr8Cost: [],
+  ok4uCost: [],
+  lymp4uCost: [],
+  myt4uStock: [],
+  gro4uStock: [],
+  ok4uStock: [],
+  gr8Stock: [],
+  lymp4uStock: [],
+  myt4uAverage: 0,
+  ok4uAverage: 0,
+  gro4uAverage: 0,
+  gr8Average: 0,
+  lymp4uAverage: 0,
 };
 const player2 = {
   number: 2,
   proffession: 'homeless',
+  myt4uCost: [],
+  gro4uCost: [],
+  gr8Cost: [],
+  ok4uCost: [],
+  lymp4uCost: [],
+  myt4uStock: [],
+  gro4uStock: [],
+  ok4uStock: [],
+  gr8Stock: [],
+  lymp4uStock: [],
+  myt4uAverage: 0,
+  ok4uAverage: 0,
+  gro4uAverage: 0,
+  gr8Average: 0,
+  lymp4uAverage: 0,
 };
 const player3 = {
   number: 3,
   proffession: 'homeless',
+  myt4uCost: [],
+  gro4uCost: [],
+  gr8Cost: [],
+  ok4uCost: [],
+  lymp4uCost: [],
+  myt4uStock: [],
+  gro4uStock: [],
+  ok4uStock: [],
+  gr8Stock: [],
+  lymp4uStock: [],
+  myt4uAverage: 0,
+  ok4uAverage: 0,
+  gro4uAverage: 0,
+  gr8Average: 0,
+  lymp4uAverage: 0,
 };
 const player4 = {
   number: 4,
   proffession: 'homeless',
+  myt4uCost: [],
+  gro4uCost: [],
+  gr8Cost: [],
+  ok4uCost: [],
+  lymp4uCost: [],
+  myt4uStock: [],
+  gro4uStock: [],
+  ok4uStock: [],
+  gr8Stock: [],
+  lymp4uStock: [],
+  myt4uAverage: 0,
+  ok4uAverage: 0,
+  gro4uAverage: 0,
+  gr8Average: 0,
+  lymp4uAverage: 0,
 };
 const player5 = {
   number: 5,
   proffession: 'homeless',
+  myt4uCost: [],
+  gro4uCost: [],
+  gr8Cost: [],
+  ok4uCost: [],
+  lymp4uCost: [],
+  myt4uStock: [],
+  gro4uStock: [],
+  ok4uStock: [],
+  gr8Stock: [],
+  lymp4uStock: [],
+  myt4uAverage: 0,
+  ok4uAverage: 0,
+  gro4uAverage: 0,
+  gr8Average: 0,
+  lymp4uAverage: 0,
 };
 const player6 = {
   number: 6,
   proffession: 'homeless',
+  myt4uCost: [],
+  gro4uCost: [],
+  gr8Cost: [],
+  ok4uCost: [],
+  lymp4uCost: [],
+  myt4uStock: [],
+  gro4uStock: [],
+  ok4uStock: [],
+  gr8Stock: [],
+  lymp4uStock: [],
+  myt4uAverage: 0,
+  ok4uAverage: 0,
+  gro4uAverage: 0,
+  gr8Average: 0,
+  lymp4uAverage: 0,
 };
 const player7 = {
   number: 7,
   proffession: 'homeless',
+  myt4uCost: [],
+  gro4uCost: [],
+  gr8Cost: [],
+  ok4uCost: [],
+  lymp4uCost: [],
+  myt4uStock: [],
+  gro4uStock: [],
+  ok4uStock: [],
+  gr8Stock: [],
+  lymp4uStock: [],
+  myt4uAverage: 0,
+  ok4uAverage: 0,
+  gro4uAverage: 0,
+  gr8Average: 0,
+  lymp4uAverage: 0,
 };
 const player8 = {
   number: 8,
   proffession: 'homeless',
+  myt4uCost: [],
+  gro4uCost: [],
+  gr8Cost: [],
+  ok4uCost: [],
+  lymp4uCost: [],
+  myt4uStock: [],
+  gro4uStock: [],
+  ok4uStock: [],
+  gr8Stock: [],
+  lymp4uStock: [],
+  myt4uAverage: 0,
+  ok4uAverage: 0,
+  gro4uAverage: 0,
+  gr8Average: 0,
+  lymp4uAverage: 0,
 };
-let stock1;
-let stock2;
-let stock3;
-let stock4;
-let stock5;
 
 let currentPlayer = player1;
 
@@ -729,6 +1055,36 @@ const fillIn = function (player) {
   gr8CostEl.textContent = gr8Cost;
   ok4uCostEl.textContent = ok4uCost;
   lymp4uCostEl.textContent = lymp4uCost;
+  myt4uRangeEl.textContent =
+    '$' +
+    myt4u.stock.lowRange.toString() +
+    ' - $' +
+    myt4u.stock.highRange.toString();
+  ok4uRangeEl.textContent =
+    '$' +
+    ok4u.stock.lowRange.toString() +
+    ' - $' +
+    ok4u.stock.highRange.toString();
+  gr8RangeEl.textContent =
+    '$' +
+    gr8.stock.lowRange.toString() +
+    ' - $' +
+    gr8.stock.highRange.toString();
+  gro4uRangeEl.textContent =
+    '$' +
+    gro4u.stock.lowRange.toString() +
+    ' - $' +
+    gro4u.stock.highRange.toString();
+  lymp4uRangeEl.textContent =
+    '$' +
+    lymp4u.stock.lowRange.toString() +
+    ' - $' +
+    lymp4u.stock.highRange.toString();
+  myt4uboughtEl.textContent = currentPlayer.myt4uAverage;
+  ok4uboughtEl.textContent = currentPlayer.ok4uAverage;
+  gro4uboughtEl.textContent = currentPlayer.gro4uAverage;
+  lymp4uboughtEl.textContent = currentPlayer.lymp4uAverage;
+  gr8boughtEl.textContent = currentPlayer.gr8Average;
 };
 
 //buy--
@@ -760,6 +1116,10 @@ const okBtn = function () {
     buyingMyt4u &&
     Number(bellEl.value) * myt4uCost <= currentPlayer.proffession.cash
   ) {
+    currentPlayer.myt4uStock.push(Number(bellEl.value));
+    currentPlayer.myt4uCost.push(myt4uCost);
+    myt4uAverage();
+    myt4uboughtEl.textContent = currentPlayer.myt4uAverage;
     currentPlayer.proffession.myt4u += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * myt4uCost;
     cashEl.textContent = currentPlayer.proffession.cash;
@@ -779,6 +1139,10 @@ const okBtn = function () {
     buyingOk4u &&
     Number(bellEl.value) * ok4uCost <= currentPlayer.proffession.cash
   ) {
+    currentPlayer.ok4uStock.push(Number(bellEl.value));
+    currentPlayer.ok4uCost.push(ok4uCost);
+    ok4uAverage();
+    ok4uboughtEl.textContent = currentPlayer.ok4uAverage;
     currentPlayer.proffession.ok4u += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * ok4uCost;
     cashEl.textContent = currentPlayer.proffession.cash;
@@ -796,6 +1160,10 @@ const okBtn = function () {
     buyingGro4u &&
     Number(bellEl.value) * gro4uCost <= currentPlayer.proffession.cash
   ) {
+    currentPlayer.gro4uStock.push(Number(bellEl.value));
+    currentPlayer.gro4uCost.push(gro4uCost);
+    gro4uAverage();
+    gro4uboughtEl.textContent = currentPlayer.gro4uAverage;
     currentPlayer.proffession.gro4u += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * gro4uCost;
     cashEl.textContent = currentPlayer.proffession.cash;
@@ -818,6 +1186,10 @@ const okBtn = function () {
     buyingGr8 &&
     Number(bellEl.value) * gr8Cost <= currentPlayer.proffession.cash
   ) {
+    currentPlayer.gr8Stock.push(Number(bellEl.value));
+    currentPlayer.gr8Cost.push(gr8Cost);
+    gr8Average();
+    gr8boughtEl.textContent = currentPlayer.gr8Average;
     currentPlayer.proffession.gr8 += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * gr8Cost;
     cashEl.textContent = currentPlayer.proffession.cash;
@@ -827,6 +1199,10 @@ const okBtn = function () {
     buyingLymp4u &&
     Number(bellEl.value) * lymp4uCost <= currentPlayer.proffession.cash
   ) {
+    currentPlayer.lymp4uStock.push(Number(bellEl.value));
+    currentPlayer.lymp4uCost.push(lymp4uCost);
+    lymp4uAverage();
+    lymp4uboughtEl.textContent = currentPlayer.lymp4uAverage;
     currentPlayer.proffession.lymp4u += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * lymp4uCost;
     cashEl.textContent = currentPlayer.proffession.cash;
@@ -877,6 +1253,11 @@ btn5000.addEventListener('click', function () {
 
 okButton.addEventListener('click', function () {
   okBtn();
+  btn50.classList.add('hidden');
+  btn100.classList.add('hidden');
+  btn500.classList.add('hidden');
+  btn1000.classList.add('hidden');
+  btn5000.classList.add('hidden');
 });
 
 const sellStock = function () {
@@ -1135,18 +1516,18 @@ const next = function () {
       fillIn(playerTrack[playerN]);
     } else {
       myt4uTick();
-      ok4uTick();
-      gr8Tick();
       gro4uTick();
+      gr8Tick();
+      ok4uTick();
       lymp4uTick();
       currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
       fillIn(playerTrack[playerN]);
     }
   } else {
     myt4uTick();
-    ok4uTick();
-    gr8Tick();
     gro4uTick();
+    gr8Tick();
+    ok4uTick();
     lymp4uTick();
     turn += 1;
     turnEl.textContent = turn;
@@ -1183,36 +1564,36 @@ const posNeg = function () {
 };
 posNeg();
 /*
-const tick1 = function (stockCost) {
-  if (stockCost <= 15) {
-    stockCost += Math.random() * 5 + 1;
-    stockCost = Math.trunc(stockCost);
-  } else if (stockCost > 15 && stockCost <= 30) {
+const tick1 = function (stock) {
+  if (stock.cost <= 15) {
+    stock.cost += Math.random() * 5 + 1;
+    stock.cost = Math.trunc(stock.cost);
+  } else if (stock.cost > 15 && stock.cost <= 30) {
     posNeg();
     if (positive) {
-      stockCost += Math.random() * 5 + 1;
-      stockCost = Math.trunc(stockCost);
+      stock.cost += Math.random() * 5 + 1;
+      stock.cost = Math.trunc(stock.cost);
     } else {
-      stockCost -= Math.random() * 2 + 1;
-      stockCost = Math.trunc(stockCost);
+      stock.cost -= Math.random() * 2 + 1;
+      stock.cost = Math.trunc(stock.cost);
     }
-  } else if (stockCost > 30 && stockCost <= 60) {
+  } else if (stock.cost > 30 && stock.cost <= 60) {
     posNeg();
     if (positive) {
-      stockCost += Math.random() * 5 + 1;
-      stockCost = Math.trunc(stockCost);
+      stock.cost += Math.random() * 5 + 1;
+      stock.cost = Math.trunc(stock.cost);
     } else {
-      stockCost -= Math.random() * 1 + 3;
-      stockCost = Math.trunc(stockCost);
+      stock.cost -= Math.random() * 1 + 3;
+      stock.cost = Math.trunc(stock.cost);
     }
-  } else if (stockCost > 60 && stockCost <= 30000) {
+  } else if (stock.cost > 60 && stock.cost <= 30000) {
     posNeg();
     if (positive) {
-      stockCost += Math.random() * 5 + 1;
-      stockCost = Math.trunc(stockCost);
+      stock.cost += Math.random() * 5 + 1;
+      stock.cost = Math.trunc(stock.cost);
     } else {
-      stockCost -= Math.random() * 50 + 1;
-      stockCost = Math.trunc(stockCost);
+      stock.cost -= Math.random() * 50 + 1;
+      stock.cost = Math.trunc(stock.cost);
     }
   }
 };
@@ -1221,6 +1602,7 @@ const tick2 = function (stockCost) {
   if (stockCost <= 7) {
     stockCost += Math.random() * 5 + 1;
     stockCost = Math.trunc(stockCost);
+    stock2.cost = stockCost;
   } else if (stockCost > 7 && stockCost <= 15) {
     posNeg();
     if (positive) {
@@ -1230,15 +1612,17 @@ const tick2 = function (stockCost) {
       stockCost -= Math.random() * 5 + 1;
       stockCost = Math.trunc(stockCost);
     }
+    stock2.cost = stockCost;
   } else if (stockCost > 15 && stockCost <= 28) {
     posNeg();
     if (positive) {
-      stockCost += Math.random() * 11 + 1;
+      stockCost += Math.random() * 6 + 3;
       stockCost = Math.trunc(stockCost);
     } else {
       stockCost -= Math.random() * 5 + 1;
       stockCost = Math.trunc(stockCost);
     }
+    stock2.cost = stockCost;
   } else if (stockCost > 28 && stockCost <= 45) {
     posNeg();
     if (positive) {
@@ -1248,7 +1632,8 @@ const tick2 = function (stockCost) {
       stockCost -= Math.random() * 8 + 1;
       stockCost = Math.trunc(stockCost);
     }
-  } else if (stockCost > 45 && stockCost <= 100) {
+    stock2.cost = stockCost;
+  } else if (stockCost > 45 && stockCost <= 1000) {
     posNeg();
     if (positive) {
       stockCost += Math.random() * 4 + 1;
@@ -1263,7 +1648,9 @@ const tick2 = function (stockCost) {
         stockCost = Math.trunc(stockCost);
       }
     }
+    stock2.cost = stockCost;
   }
+  gro4uCost = stock2.cost;
 };
 
 const tick3 = function (stockCost) {
@@ -1310,49 +1697,71 @@ const tick3 = function (stockCost) {
   }
 };
 */
+
+let crazy = Math.random() * 10 + 1;
+
 const myt4uTick = function () {
-  if (myt4uCost <= 7) {
-    myt4uCost += Math.random() * 5 + 1;
+  if (myt4uCost <= myt4u.stock.lowRange) {
+    myt4uCost += Math.random() * 4 + 3;
     myt4uCost = Math.trunc(myt4uCost);
-  } else if (myt4uCost > 7 && myt4uCost <= 15) {
+  } else if (
+    myt4uCost > myt4u.stock.lowRange &&
+    myt4uCost <= myt4u.stock.second
+  ) {
     posNeg();
     if (positive) {
-      myt4uCost += Math.random() * 8 + 1;
+      myt4uCost += Math.random() * 6 + 4;
       myt4uCost = Math.trunc(myt4uCost);
     } else {
-      myt4uCost -= Math.random() * 5 + 1;
+      myt4uCost -= Math.random() * 3 + 1;
       myt4uCost = Math.trunc(myt4uCost);
     }
-  } else if (myt4uCost > 15 && myt4uCost <= 28) {
+  } else if (myt4uCost > myt4u.stock.second && myt4uCost <= myt4u.stock.third) {
     posNeg();
     if (positive) {
-      myt4uCost += Math.random() * 11 + 1;
+      myt4uCost += Math.random() * 7 + 4;
       myt4uCost = Math.trunc(myt4uCost);
     } else {
-      myt4uCost -= Math.random() * 5 + 1;
+      myt4uCost -= Math.random() * 2 + 2;
       myt4uCost = Math.trunc(myt4uCost);
     }
-  } else if (myt4uCost > 28 && myt4uCost <= 45) {
+  } else if (myt4uCost > myt4u.stock.third && myt4uCost <= myt4u.stock.fourth) {
     posNeg();
     if (positive) {
-      myt4uCost += Math.random() * 9 + 3;
+      myt4uCost += Math.random() * 10 + 4;
       myt4uCost = Math.trunc(myt4uCost);
     } else {
-      myt4uCost -= Math.random() * 8 + 1;
+      myt4uCost -= Math.random() * 4 + 2;
       myt4uCost = Math.trunc(myt4uCost);
     }
-  } else if (myt4uCost > 45 && myt4uCost <= 1000) {
+    crazy = Math.trunc(Math.random() * 10 + 1);
+    if (crazy == 5) {
+      myt4uCost = myt4u.stock.lowRange;
+    }
+  } else if (
+    myt4uCost > myt4u.stock.fourth &&
+    myt4uCost <= myt4u.stock.highRange
+  ) {
     posNeg();
     if (positive) {
-      myt4uCost += Math.random() * 4 + 1;
+      myt4uCost += Math.random() * 10 + 4;
+      myt4uCost = Math.trunc(myt4uCost);
+    } else {
+      myt4uCost -= Math.random() * 4 + 2;
+      myt4uCost = Math.trunc(myt4uCost);
+    }
+  } else if (myt4uCost > myt4u.stock.highRange) {
+    posNeg();
+    if (positive) {
+      myt4uCost += Math.random() * 3 + 1;
       myt4uCost = Math.trunc(myt4uCost);
     } else {
       posNeg();
       if (positive) {
-        myt4uCost -= Math.random() * 3 + 1;
+        myt4uCost -= Math.random() * 8 + 5;
         myt4uCost = Math.trunc(myt4uCost);
       } else {
-        myt4uCost -= Math.random() * 10 + 1;
+        myt4uCost -= Math.random() * myt4u.stock.highRange - 30 + 30;
         myt4uCost = Math.trunc(myt4uCost);
       }
     }
@@ -1360,116 +1769,190 @@ const myt4uTick = function () {
 };
 
 const gro4uTick = function () {
-  if (gro4uCost <= 85) {
-    gro4uCost += Math.random() * 5 + 1;
+  if (gro4uCost <= gro4u.stock.lowRange) {
+    gro4uCost += Math.random() * 4 + 3;
     gro4uCost = Math.trunc(gro4uCost);
-  } else if (gro4uCost > 85 && gro4uCost <= 110) {
+  } else if (
+    gro4uCost > gro4u.stock.lowRange &&
+    gro4uCost <= gro4u.stock.second
+  ) {
     posNeg();
     if (positive) {
-      gro4uCost += Math.random() * 20 + 1;
+      gro4uCost += Math.random() * 6 + 4;
       gro4uCost = Math.trunc(gro4uCost);
     } else {
-      gro4uCost -= Math.random() * 7 + 1;
+      gro4uCost -= Math.random() * 3 + 1;
       gro4uCost = Math.trunc(gro4uCost);
     }
-  } else if (gro4uCost > 110 && gro4uCost <= 150) {
+  } else if (gro4uCost > gro4u.stock.second && gro4uCost <= gro4u.stock.third) {
     posNeg();
     if (positive) {
-      gro4uCost += Math.random() * 9 + 5;
+      gro4uCost += Math.random() * 7 + 4;
       gro4uCost = Math.trunc(gro4uCost);
     } else {
-      gro4uCost -= Math.random() * 6 + 2;
+      gro4uCost -= Math.random() * 3 + 2;
       gro4uCost = Math.trunc(gro4uCost);
     }
-  } else if (gro4uCost > 150 && gro4uCost <= 199) {
+  } else if (gro4uCost > gro4u.stock.third && gro4uCost <= gro4u.stock.fourth) {
     posNeg();
     if (positive) {
-      gro4uCost += Math.random() * 13 + 4;
+      gro4uCost += Math.random() * 10 + 4;
       gro4uCost = Math.trunc(gro4uCost);
     } else {
-      gro4uCost -= Math.random() * 5 + 3;
+      gro4uCost -= Math.random() * 3 + 2;
       gro4uCost = Math.trunc(gro4uCost);
     }
-  } else if (gro4uCost > 199 && gro4uCost <= 900) {
+    crazy = Math.trunc(Math.random() * 10 + 1);
+    if (crazy == 5) {
+      gro4uCost = gro4u.stock.lowRange;
+    }
+  } else if (
+    gro4uCost > gro4u.stock.fourth &&
+    gro4uCost <= gro4u.stock.highRange
+  ) {
     posNeg();
     if (positive) {
-      gro4uCost += Math.random() * 5 + 1;
+      gro4uCost += Math.random() * 10 + 4;
       gro4uCost = Math.trunc(gro4uCost);
     } else {
-      gro4uCost -= Math.random() * 85 + 30;
+      gro4uCost -= Math.random() * 4 + 2;
       gro4uCost = Math.trunc(gro4uCost);
+    }
+  } else if (gro4uCost > gro4u.stock.highRange) {
+    posNeg();
+    if (positive) {
+      gro4uCost += Math.random() * 3 + 1;
+      gro4uCost = Math.trunc(gro4uCost);
+    } else {
+      posNeg();
+      if (positive) {
+        gro4uCost -= Math.random() * 8 + 5;
+        gro4uCost = Math.trunc(gro4uCost);
+      } else {
+        gro4uCost -= Math.random() * gro4u.stock.highRange - 30 + 30;
+        gro4uCost = Math.trunc(gro4uCost);
+      }
     }
   }
 };
-
 const gr8Tick = function () {
-  if (gr8Cost <= 15) {
-    gr8Cost += Math.random() * 5 + 1;
+  if (gr8Cost <= gr8.stock.lowRange) {
+    gr8Cost += Math.random() * 4 + 3;
     gr8Cost = Math.trunc(gr8Cost);
-  } else if (gr8Cost > 15 && gr8Cost <= 30) {
+  } else if (gr8Cost > gr8.stock.lowRange && gr8Cost <= gr8.stock.second) {
     posNeg();
     if (positive) {
-      gr8Cost += Math.random() * 5 + 3;
+      gr8Cost += Math.random() * 7 + 4;
       gr8Cost = Math.trunc(gr8Cost);
     } else {
       gr8Cost -= Math.random() * 2 + 2;
       gr8Cost = Math.trunc(gr8Cost);
     }
-  } else if (gr8Cost > 30 && gr8Cost <= 60) {
+  } else if (gr8Cost > gr8.stock.second && gr8Cost <= gr8.stock.third) {
     posNeg();
     if (positive) {
-      gr8Cost += Math.random() * 8 + 3;
+      gr8Cost += Math.random() * 7 + 4;
+      gr8Cost = Math.trunc(gr8Cost);
+    } else {
+      gr8Cost -= Math.random() * 3 + 2;
+      gr8Cost = Math.trunc(gr8Cost);
+    }
+  } else if (gr8Cost > gr8.stock.third && gr8Cost <= gr8.stock.fourth) {
+    posNeg();
+    if (positive) {
+      gr8Cost += Math.random() * 10 + 4;
+      gr8Cost = Math.trunc(gr8Cost);
+    } else {
+      gr8Cost -= Math.random() * 3 + 2;
+      gr8Cost = Math.trunc(gr8Cost);
+    }
+    crazy = Math.trunc(Math.random() * 10 + 1);
+    if (crazy == 5) {
+      gr8Cost = gr8.stock.lowRange;
+    }
+  } else if (gr8Cost > gr8.stock.fourth && gr8Cost <= gr8.stock.highRange) {
+    posNeg();
+    if (positive) {
+      gr8Cost += Math.random() * 10 + 4;
       gr8Cost = Math.trunc(gr8Cost);
     } else {
       gr8Cost -= Math.random() * 3 + 3;
       gr8Cost = Math.trunc(gr8Cost);
     }
-  } else if (gr8Cost > 60 && gr8Cost <= 30000) {
+  } else if (gr8Cost > gr8.stock.highRange) {
     posNeg();
     if (positive) {
-      gr8Cost += Math.random() * 5 + 1;
+      gr8Cost += Math.random() * 3 + 1;
       gr8Cost = Math.trunc(gr8Cost);
     } else {
-      gr8Cost -= Math.random() * 30 + 20;
-      gr8Cost = Math.trunc(gr8Cost);
+      posNeg();
+      if (positive) {
+        gr8Cost -= Math.random() * 10 + 5;
+        gr8Cost = Math.trunc(gr8Cost);
+      } else {
+        gr8Cost -= Math.random() * gr8.stock.highRange - 30 + 30;
+        gr8Cost = Math.trunc(gr8Cost);
+      }
     }
   }
 };
 
 const ok4uTick = function () {
-  if (ok4uCost <= 17) {
-    ok4uCost += Math.random() * 2 + 1;
+  if (ok4uCost <= ok4u.stock.lowRange) {
+    ok4uCost += Math.random() * 4 + 3;
     ok4uCost = Math.trunc(ok4uCost);
-  } else if (ok4uCost > 17 && ok4uCost <= 23) {
+  } else if (ok4uCost > ok4u.stock.lowRange && ok4uCost <= ok4u.stock.second) {
     posNeg();
     if (positive) {
-      ok4uCost += Math.random() * 4 + 2;
+      ok4uCost += Math.random() * 6 + 4;
       ok4uCost = Math.trunc(ok4uCost);
     } else {
-      ok4uCost -= Math.random() * 2 + 2;
+      ok4uCost -= Math.random() * 3 + 1;
       ok4uCost = Math.trunc(ok4uCost);
     }
-  } else if (ok4uCost > 23 && ok4uCost <= 27) {
+  } else if (ok4uCost > ok4u.stock.second && ok4uCost <= ok4u.stock.third) {
     posNeg();
     if (positive) {
-      ok4uCost += Math.random() * 4 + 2;
+      ok4uCost += Math.random() * 7 + 4;
       ok4uCost = Math.trunc(ok4uCost);
     } else {
-      ok4uCost -= Math.random() * 3 + 2;
+      ok4uCost -= Math.random() * 3 + 1;
       ok4uCost = Math.trunc(ok4uCost);
     }
-  } else if (ok4uCost > 27 && ok4uCost <= 40000) {
+  } else if (ok4uCost > ok4u.stock.third && ok4uCost <= ok4u.stock.fourth) {
     posNeg();
     if (positive) {
-      ok4uCost += Math.random() * 3 + 2;
+      ok4uCost += Math.random() * 10 + 4;
       ok4uCost = Math.trunc(ok4uCost);
     } else {
-      posNeg;
+      ok4uCost -= Math.random() * 4 + 2;
+      ok4uCost = Math.trunc(ok4uCost);
+    }
+    crazy = Math.trunc(Math.random() * 10 + 1);
+    if (crazy == 5) {
+      ok4uCost = ok4u.stock.lowRange;
+    }
+  } else if (ok4uCost > ok4u.stock.fourth && ok4uCost <= ok4u.stock.highRange) {
+    posNeg();
+    if (positive) {
+      ok4uCost += Math.random() * 10 + 4;
+      ok4uCost = Math.trunc(ok4uCost);
+    } else {
+      ok4uCost -= Math.random() * 3 + 3;
+      ok4uCost = Math.trunc(ok4uCost);
+    }
+  } else if (ok4uCost > ok4u.stock.highRange) {
+    posNeg();
+    if (positive) {
+      ok4uCost += Math.random() * 3 + 1;
+      ok4uCost = Math.trunc(ok4uCost);
+    } else {
+      posNeg();
       if (positive) {
-        ok4uCost -= Math.random() * 12 + 8;
+        ok4uCost -= Math.random() * 10 + 5;
         ok4uCost = Math.trunc(ok4uCost);
       } else {
-        ok4uCost -= Math.random() * 5 + 3;
+        ok4uCost -= Math.random() * ok4u.stock.highRange - 30 + 30;
         ok4uCost = Math.trunc(ok4uCost);
       }
     }
@@ -1477,114 +1960,195 @@ const ok4uTick = function () {
 };
 
 const lymp4uTick = function () {
-  if (lymp4uCost <= 15) {
-    lymp4uCost += Math.random() * 3 + 1;
+  if (lymp4uCost <= lymp4u.stock.lowRange) {
+    lymp4uCost += Math.random() * 4 + 3;
     lymp4uCost = Math.trunc(lymp4uCost);
-  } else if (lymp4uCost > 15 && lymp4uCost <= 30) {
+  } else if (
+    lymp4uCost > lymp4u.stock.lowRange &&
+    lymp4uCost <= lymp4u.stock.second
+  ) {
     posNeg();
     if (positive) {
-      lymp4uCost += Math.random() * 5 + 1;
+      lymp4uCost += Math.random() * 6 + 4;
       lymp4uCost = Math.trunc(lymp4uCost);
     } else {
-      lymp4uCost -= Math.random() * 3 + 1;
+      lymp4uCost -= Math.random() * 2 + 1;
       lymp4uCost = Math.trunc(lymp4uCost);
     }
-  } else if (lymp4uCost > 30 && lymp4uCost <= 45) {
+  } else if (
+    lymp4uCost > lymp4u.stock.second &&
+    lymp4uCost <= lymp4u.stock.third
+  ) {
     posNeg();
     if (positive) {
-      lymp4uCost += Math.random() * 8 + 1;
+      lymp4uCost += Math.random() * 7 + 4;
       lymp4uCost = Math.trunc(lymp4uCost);
     } else {
-      lymp4uCost -= Math.random() * 3 + 1;
+      lymp4uCost -= Math.random() * 3 + 2;
       lymp4uCost = Math.trunc(lymp4uCost);
     }
-  } else if (lymp4uCost > 45 && lymp4uCost <= 60) {
+  } else if (
+    lymp4uCost > lymp4u.stock.third &&
+    lymp4uCost <= lymp4u.stock.fourth
+  ) {
     posNeg();
     if (positive) {
-      lymp4uCost += Math.random() * 6 + 1;
+      lymp4uCost += Math.random() * 10 + 4;
       lymp4uCost = Math.trunc(lymp4uCost);
     } else {
-      lymp4uCost -= Math.random() * 3 + 1;
+      lymp4uCost -= Math.random() * 4 + 3;
       lymp4uCost = Math.trunc(lymp4uCost);
     }
-  } else if (lymp4uCost > 60 && lymp4uCost <= 10000) {
+    crazy = Math.trunc(Math.random() * 10 + 1);
+    if (crazy == 5) {
+      lymp4uCost = lymp4u.stock.lowRange;
+    }
+  } else if (
+    lymp4uCost > lymp4u.stock.fourth &&
+    lymp4uCost <= lymp4u.stock.highRange
+  ) {
     posNeg();
     if (positive) {
-      lymp4uCost += Math.random() * 8 + 1;
+      lymp4uCost += Math.random() * 10 + 4;
+      lymp4uCost = Math.trunc(lymp4uCost);
+    } else {
+      lymp4uCost -= Math.random() * 4 + 3;
+      lymp4uCost = Math.trunc(lymp4uCost);
+    }
+  } else if (lymp4uCost > lymp4u.stock.highRange) {
+    posNeg();
+    if (positive) {
+      lymp4uCost += Math.random() * 3 + 1;
       lymp4uCost = Math.trunc(lymp4uCost);
     } else {
       posNeg();
       if (positive) {
-        lymp4uCost -= Math.random() * 3 + 1;
+        lymp4uCost -= Math.random() * 10 + 5;
         lymp4uCost = Math.trunc(lymp4uCost);
       } else {
-        lymp4uCost -= Math.random() * 20 + 10;
+        lymp4uCost -= Math.random() * lymp4u.stock.highRange - 20 + 20;
         lymp4uCost = Math.trunc(lymp4uCost);
       }
     }
   }
 };
+/*
+let myt4uCostBasis1 = [];
+let gro4uCostBasis1 = [];
+let ok4uCostBasis1 = [];
+let gr84uCostBasis1 = [];
+let lymp4uCostBasis1 = [];
 
-const pickStock = function () {
-  let pick = Math.trunc(Math.random() * 5 + 1);
-  if (pick == 1) {
-    tick1(myt4uCost);
-  } else if (pick == 2) {
-    tick1(ok4uCost);
-  } else if (pick == 3) {
-    tick1(gro4uCost);
-  } else if (pick == 4) {
-    tick1(gr8Cost);
-  } else if (pick == 5) {
-    tick1(lymp4uCost);
-  }
-  pick = Math.trunc(Math.random() * 5 + 1);
-  if (pick == 1) {
-    tick2(myt4uCost);
-  } else if (pick == 2) {
-    tick2(ok4uCost);
-  } else if (pick == 3) {
-    tick2(gro4uCost);
-  } else if (pick == 4) {
-    tick2(gr8Cost);
-  } else if (pick == 5) {
-    tick2(lymp4uCost);
-  }
+let myt4uCostBasis2 = [];
+let gro4uCostBasis2 = [];
+let ok4uCostBasis2 = [];
+let gr84uCostBasis2 = [];
+let lymp4uCostBasis2 = [];
 
-  pick = Math.trunc(Math.random() * 5 + 1);
-  if (pick == 1) {
-    tick3(myt4uCost);
-  } else if (pick == 2) {
-    tick3(ok4uCost);
-  } else if (pick == 3) {
-    tick3(gro4uCost);
-  } else if (pick == 4) {
-    tick3(gr8Cost);
-  } else if (pick == 5) {
-    tick3(lymp4uCost);
-  }
+let myt4uCostBasis3 = [];
+let gro4uCostBasis3 = [];
+let ok4uCostBasis3 = [];
+let gr84uCostBasis3 = [];
+let lymp4uCostBasis3 = [];
 
-  /*
-  pick = Math.trunc(Math.random() * 5 + 1);
-  if (pick == 1) {
-  } else if (pick == 2) {
-   
-  } else if (pick == 3) {
-  } else if (pick == 4) {
-  } else if (pick == 5) {
-    
-  }
-  pick = Math.trunc(Math.random() * 5 + 1);
-  if (pick == 1) {
-    
-  } else if (pick == 5) {
-    
-  } else if (pick == 3) {
-    
-  } else if (pick == 4) {
-    
-  } else if (pick == 5) {
-    
-  }
+let myt4uCostBasis4 = [];
+let gro4uCostBasis4 = [];
+let ok4uCostBasis4 = [];
+let gr84uCostBasis4 = [];
+let lymp4uCostBasis4 = [];
+
+let myt4uCostBasis5 = [];
+let gro4uCostBasis5 = [];
+let ok4uCostBasis5 = [];
+let gr84uCostBasis5 = [];
+let lymp4uCostBasis5 = [];
+
+let myt4uCostBasis6 = [];
+let gro4uCostBasis6 = [];
+let ok4uCostBasis6 = [];
+let gr84uCostBasis6 = [];
+let lymp4uCostBasis6 = [];
+
+let myt4uCostBasis7 = [];
+let gro4uCostBasis7 = [];
+let ok4uCostBasis7 = [];
+let gr84uCostBasis7 = [];
+let lymp4uCostBasis7 = [];
+
+let myt4uCostBasis8 = [];
+let gro4uCostBasis8 = [];
+let ok4uCostBasis8 = [];
+let gr84uCostBasis8 = [];
+let lymp4uCostBasis8 = [];
 */
+let n = 0;
+const myt4uAverage = function () {
+  n = 0;
+  currentPlayer.myt4uAverage = 0;
+  for (let i = 0; i < currentPlayer.myt4uStock.length; i++) {
+    currentPlayer.myt4uAverage +=
+      currentPlayer.myt4uCost[i] * currentPlayer.myt4uStock[i];
+    console.log(currentPlayer.myt4uAverage);
+  }
+  for (let i = 0; i < currentPlayer.myt4uStock.length; i++) {
+    n += currentPlayer.myt4uStock[i];
+    console.log(n);
+  }
+  currentPlayer.myt4uAverage = Math.trunc(currentPlayer.myt4uAverage / n);
+};
+const ok4uAverage = function () {
+  n = 0;
+  currentPlayer.ok4uAverage = 0;
+  for (let i = 0; i < currentPlayer.ok4uStock.length; i++) {
+    currentPlayer.ok4uAverage +=
+      currentPlayer.ok4uCost[i] * currentPlayer.ok4uStock[i];
+    console.log(currentPlayer.ok4uAverage);
+  }
+  for (let i = 0; i < currentPlayer.ok4uStock.length; i++) {
+    n += currentPlayer.ok4uStock[i];
+    console.log(n);
+  }
+  currentPlayer.ok4uAverage = Math.trunc(currentPlayer.ok4uAverage / n);
+};
+const gro4uAverage = function () {
+  n = 0;
+  currentPlayer.gro4uAverage = 0;
+  for (let i = 0; i < currentPlayer.gro4uStock.length; i++) {
+    currentPlayer.gro4uAverage +=
+      currentPlayer.gro4uCost[i] * currentPlayer.gro4uStock[i];
+    console.log(currentPlayer.gro4uAverage);
+  }
+  for (let i = 0; i < currentPlayer.gro4uStock.length; i++) {
+    n += currentPlayer.gro4uStock[i];
+    console.log(n);
+  }
+  currentPlayer.gro4uAverage = Math.trunc(currentPlayer.gro4uAverage / n);
+};
+const gr8Average = function () {
+  n = 0;
+  currentPlayer.gr8Average = 0;
+  for (let i = 0; i < currentPlayer.gr8Stock.length; i++) {
+    currentPlayer.gr8Average +=
+      currentPlayer.gr8Cost[i] * currentPlayer.gr8Stock[i];
+    console.log(currentPlayer.gr8Average);
+  }
+  for (let i = 0; i < currentPlayer.gr8Stock.length; i++) {
+    n += currentPlayer.gr8Stock[i];
+    console.log(n);
+  }
+  currentPlayer.gr8Average = Math.trunc(currentPlayer.gr8Average / n);
+};
+const lymp4uAverage = function () {
+  n = 0;
+  currentPlayer.lymp4uAverage = 0;
+  for (let i = 0; i < currentPlayer.lymp4uStock.length; i++) {
+    currentPlayer.lymp4uAverage +=
+      currentPlayer.lymp4uCost[i] * currentPlayer.lymp4uStock[i];
+    console.log(currentPlayer.lymp4uAverage);
+  }
+  for (let i = 0; i < currentPlayer.lymp4uStock.length; i++) {
+    n += currentPlayer.lymp4uStock[i];
+    console.log(n);
+  }
+  currentPlayer.lymp4uAverage = Math.trunc(currentPlayer.lymp4uAverage / n);
 };
