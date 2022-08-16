@@ -14,8 +14,8 @@
 }
 
 .next {
-  margin-top: 150px;
-  margin-left: 550px;
+  margin-top: 50px;
+  margin-left: 30px;
   font-size: 50px;
   padding-bottom: 20px;
   padding-right: 20px;
@@ -78,4 +78,20 @@
   border-radius: 5px;
   box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
   z-index: 10;
+}
+
+.loan {
+  margin-top: 50px;
+
+  padding-bottom: 20px;
+  padding-right: 20px;
+  font-size: 40px;
+}
+
+.paybackLoan {
+  margin-top: 50px;
+
+  padding-bottom: 20px;
+  padding-right: 20px;
+  font-size: 40px;
 }

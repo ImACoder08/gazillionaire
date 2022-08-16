@@ -66,7 +66,12 @@ let ok4uboughtEl = document.querySelector('.ok4uBuyPrice');
 let gr8boughtEl = document.querySelector('.gr8BuyPrice');
 let gro4uboughtEl = document.querySelector('.gro4uBuyPrice');
 let lymp4uboughtEl = document.querySelector('.lymp4uBuyPrice');
-
+let loanBtn = document.querySelector('.loan');
+let loanEl = document.querySelector('.currentLoan');
+let okLoan = document.querySelector('.okLoan');
+let loanValue = document.querySelector('.loanN');
+let paybackLoan = document.querySelector('.paybackLoan');
+paybackLoan.classList.add('hidden');
 //Booleans
 let driverBought = false;
 let teacherBought = false;
@@ -829,6 +834,7 @@ const player1 = {
   gro4uAverage: 0,
   gr8Average: 0,
   lymp4uAverage: 0,
+  currentLoan: 0,
 };
 const player2 = {
   number: 2,
@@ -848,6 +854,7 @@ const player2 = {
   gro4uAverage: 0,
   gr8Average: 0,
   lymp4uAverage: 0,
+  currentLoan: 0,
 };
 const player3 = {
   number: 3,
@@ -867,6 +874,7 @@ const player3 = {
   gro4uAverage: 0,
   gr8Average: 0,
   lymp4uAverage: 0,
+  currentLoan: 0,
 };
 const player4 = {
   number: 4,
@@ -886,6 +894,7 @@ const player4 = {
   gro4uAverage: 0,
   gr8Average: 0,
   lymp4uAverage: 0,
+  currentLoan: 0,
 };
 const player5 = {
   number: 5,
@@ -905,6 +914,7 @@ const player5 = {
   gro4uAverage: 0,
   gr8Average: 0,
   lymp4uAverage: 0,
+  currentLoan: 0,
 };
 const player6 = {
   number: 6,
@@ -924,6 +934,7 @@ const player6 = {
   gro4uAverage: 0,
   gr8Average: 0,
   lymp4uAverage: 0,
+  currentLoan: 0,
 };
 const player7 = {
   number: 7,
@@ -943,6 +954,7 @@ const player7 = {
   gro4uAverage: 0,
   gr8Average: 0,
   lymp4uAverage: 0,
+  currentLoan: 0,
 };
 const player8 = {
   number: 8,
@@ -962,6 +974,7 @@ const player8 = {
   gro4uAverage: 0,
   gr8Average: 0,
   lymp4uAverage: 0,
+  currentLoan: 0,
 };
 
 let currentPlayer = player1;
@@ -1085,6 +1098,7 @@ const fillIn = function (player) {
   gro4uboughtEl.textContent = currentPlayer.gro4uAverage;
   lymp4uboughtEl.textContent = currentPlayer.lymp4uAverage;
   gr8boughtEl.textContent = currentPlayer.gr8Average;
+  loanEl.textContent = currentPlayer.currentLoan;
 };
 
 //buy--
@@ -1118,7 +1132,11 @@ const okBtn = function () {
   ) {
     currentPlayer.myt4uStock.push(Number(bellEl.value));
     currentPlayer.myt4uCost.push(myt4uCost);
-    myt4uAverage();
+    currentPlayer.myt4uAverage = stockAverage(
+      currentPlayer.myt4uAverage,
+      currentPlayer.myt4uStock,
+      currentPlayer.myt4uCost
+    );
     myt4uboughtEl.textContent = currentPlayer.myt4uAverage;
     currentPlayer.proffession.myt4u += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * myt4uCost;
@@ -1128,6 +1146,14 @@ const okBtn = function () {
 
   if (sellingMyt4u) {
     if (currentPlayer.proffession.myt4u >= Number(bellEl.value)) {
+      currentPlayer.myt4uStock = stockArr(currentPlayer.myt4uStock);
+      currentPlayer.myt4uCost.length = currentPlayer.myt4uStock.length;
+      currentPlayer.myt4uAverage = stockAverage(
+        currentPlayer.myt4uAverage,
+        currentPlayer.myt4uStock,
+        currentPlayer.myt4uCost
+      );
+      myt4uboughtEl.textContent = currentPlayer.myt4uAverage;
       currentPlayer.proffession.myt4u -= Number(bellEl.value);
       currentPlayer.proffession.cash += Number(bellEl.value) * myt4uCost;
       cashEl.textContent = currentPlayer.proffession.cash;
@@ -1141,7 +1167,11 @@ const okBtn = function () {
   ) {
     currentPlayer.ok4uStock.push(Number(bellEl.value));
     currentPlayer.ok4uCost.push(ok4uCost);
-    ok4uAverage();
+    currentPlayer.ok4uAverage = stockAverage(
+      currentPlayer.ok4uAverage,
+      currentPlayer.ok4uStock,
+      currentPlayer.ok4uCost
+    );
     ok4uboughtEl.textContent = currentPlayer.ok4uAverage;
     currentPlayer.proffession.ok4u += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * ok4uCost;
@@ -1150,6 +1180,14 @@ const okBtn = function () {
   }
 
   if (sellingOk4u && currentPlayer.proffession.ok4u >= Number(bellEl.value)) {
+    currentPlayer.ok4uStock = stockArr(currentPlayer.ok4uStock);
+    currentPlayer.ok4uCost.length = currentPlayer.ok4uStock.length;
+    currentPlayer.ok4uAverage = stockAverage(
+      currentPlayer.ok4uAverage,
+      currentPlayer.ok4uStock,
+      currentPlayer.ok4uCost
+    );
+    ok4uboughtEl.textContent = currentPlayer.ok4uAverage;
     currentPlayer.proffession.ok4u -= Number(bellEl.value);
     currentPlayer.proffession.cash += Number(bellEl.value) * ok4uCost;
     cashEl.textContent = currentPlayer.proffession.cash;
@@ -1162,7 +1200,11 @@ const okBtn = function () {
   ) {
     currentPlayer.gro4uStock.push(Number(bellEl.value));
     currentPlayer.gro4uCost.push(gro4uCost);
-    gro4uAverage();
+    currentPlayer.gro4uAverage = stockAverage(
+      currentPlayer.gro4uAverage,
+      currentPlayer.gro4uStock,
+      currentPlayer.gro4uCost
+    );
     gro4uboughtEl.textContent = currentPlayer.gro4uAverage;
     currentPlayer.proffession.gro4u += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * gro4uCost;
@@ -1171,12 +1213,28 @@ const okBtn = function () {
   }
 
   if (sellingGro4u && currentPlayer.proffession.gro4u >= Number(bellEl.value)) {
+    currentPlayer.gro4uStock = stockArr(currentPlayer.gro4uStock);
+    currentPlayer.gro4uCost.length = currentPlayer.gro4uStock.length;
+    currentPlayer.gro4uAverage = stockAverage(
+      currentPlayer.gro4uAverage,
+      currentPlayer.gro4uStock,
+      currentPlayer.gro4uCost
+    );
+    gro4uboughtEl.textContent = currentPlayer.gro4uAverage;
     currentPlayer.proffession.gro4u -= Number(bellEl.value);
     currentPlayer.proffession.cash += Number(bellEl.value) * gro4uCost;
     cashEl.textContent = currentPlayer.proffession.cash;
     gro4uEl.textContent = currentPlayer.proffession.gro4u;
   }
   if (sellingGr8 && currentPlayer.proffession.gr8 >= Number(bellEl.value)) {
+    currentPlayer.gr8Stock = stockArr(currentPlayer.gr8Stock);
+    currentPlayer.gr8Cost.length = currentPlayer.gr8Stock.length;
+    currentPlayer.gr8Average = stockAverage(
+      currentPlayer.gr8Average,
+      currentPlayer.gr8Stock,
+      currentPlayer.gr8Cost
+    );
+    gr8boughtEl.textContent = currentPlayer.gr8Average;
     currentPlayer.proffession.gr8 -= Number(bellEl.value);
     currentPlayer.proffession.cash += Number(bellEl.value) * gr8Cost;
     cashEl.textContent = currentPlayer.proffession.cash;
@@ -1188,7 +1246,11 @@ const okBtn = function () {
   ) {
     currentPlayer.gr8Stock.push(Number(bellEl.value));
     currentPlayer.gr8Cost.push(gr8Cost);
-    gr8Average();
+    currentPlayer.gr8Average = stockAverage(
+      currentPlayer.gr8Average,
+      currentPlayer.gr8Stock,
+      currentPlayer.gr8Cost
+    );
     gr8boughtEl.textContent = currentPlayer.gr8Average;
     currentPlayer.proffession.gr8 += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * gr8Cost;
@@ -1201,7 +1263,11 @@ const okBtn = function () {
   ) {
     currentPlayer.lymp4uStock.push(Number(bellEl.value));
     currentPlayer.lymp4uCost.push(lymp4uCost);
-    lymp4uAverage();
+    currentPlayer.lymp4uAverage = stockAverage(
+      currentPlayer.lymp4uAverage,
+      currentPlayer.lymp4uStock,
+      currentPlayer.lymp4uCost
+    );
     lymp4uboughtEl.textContent = currentPlayer.lymp4uAverage;
     currentPlayer.proffession.lymp4u += Number(bellEl.value);
     currentPlayer.proffession.cash -= Number(bellEl.value) * lymp4uCost;
@@ -1212,6 +1278,14 @@ const okBtn = function () {
     sellingLymp4u &&
     currentPlayer.proffession.lymp4u >= Number(bellEl.value)
   ) {
+    currentPlayer.lymp4uStock = stockArr(currentPlayer.lymp4uStock);
+    currentPlayer.lymp4uCost.length = currentPlayer.lymp4uStock.length;
+    currentPlayer.lymp4uAverage = stockAverage(
+      currentPlayer.lymp4uAverage,
+      currentPlayer.lymp4uStock,
+      currentPlayer.lymp4uCost
+    );
+    lymp4uboughtEl.textContent = currentPlayer.lymp4uAverage;
     currentPlayer.proffession.lymp4u -= Number(bellEl.value);
     currentPlayer.proffession.cash += Number(bellEl.value) * lymp4uCost;
     cashEl.textContent = currentPlayer.proffession.cash;
@@ -1492,7 +1566,78 @@ buyOk4uEl.addEventListener('click', function () {
   }
   buyStock();
 });
+let interest = 0.2;
+let totalStock =
+  currentPlayer.proffession.myt4u +
+  currentPlayer.proffession.gro4u +
+  currentPlayer.proffession.gr8 +
+  currentPlayer.proffession.lymp4u +
+  currentPlayer.proffession.ok4u;
+okLoan.addEventListener('click', function () {
+  okLoan.classList.add('hidden');
+  loanValue.classList.add('hidden');
+  if (getting && totalStock * 1000 >= parseInt(loanValue.value)) {
+    currentPlayer.currentLoan += parseInt(loanValue.value);
+    currentPlayer.proffession.totalExpenses +=
+      currentPlayer.currentLoan * interest;
+    currentPlayer.proffession.cashFlow -= currentPlayer.currentLoan * interest;
+    currentPlayer.proffession.cash += parseInt(loanValue.value);
+    if (currentPlayer.currentLoan > 0) {
+      paybackLoan.classList.remove('hidden');
+    }
+  } else {
+    if (
+      parseInt(loanValue.value) <= currentPlayer.proffession.cash &&
+      currentPlayer.currentLoan >= parseInt(loanValue.value)
+    ) {
+      currentPlayer.currentLoan -= parseInt(loanValue.value);
+      currentPlayer.proffession.totalExpenses -=
+        parseInt(loanValue.value) * interest;
+      currentPlayer.proffession.cashFlow +=
+        parseInt(loanValue.value) * interest;
+      currentPlayer.proffession.cash -= parseInt(loanValue.value);
+      if (currentPlayer.currentLoan == 0) {
+        paybackLoan.classList.add('hidden');
+      }
+    }
+  }
+  fillIn(currentPlayer);
+  getting = false;
+  paying = false;
+});
+let getting = false;
+let paying = false;
+loanBtn.addEventListener('click', function () {
+  totalStock =
+    currentPlayer.proffession.myt4u +
+    currentPlayer.proffession.gro4u +
+    currentPlayer.proffession.gr8 +
+    currentPlayer.proffession.lymp4u +
+    currentPlayer.proffession.ok4u;
+  if (!firstTurn && !getting) {
+    loanValue.value = '';
+    getting = true;
+    okLoan.classList.toggle('hidden');
+    loanValue.classList.toggle('hidden');
+  } else if (!firstTurn) {
+    getting = false;
+    okLoan.classList.toggle('hidden');
+    loanValue.classList.toggle('hidden');
+  }
+});
 
+paybackLoan.addEventListener('click', function () {
+  if (!firstTurn && !paying) {
+    loanValue.value = '';
+    paying = true;
+    okLoan.classList.toggle('hidden');
+    loanValue.classList.toggle('hidden');
+  } else {
+    paying = false;
+    okLoan.classList.toggle('hidden');
+    loanValue.classList.toggle('hidden');
+  }
+});
 let playerN = 0;
 const playerTrack = [
   player1,
@@ -1543,13 +1688,15 @@ pickJob(player1);
 player1.proffession.cash = 0;
 fillIn(player1);
 nextBtn.addEventListener('click', function () {
-  clear();
-  clear();
-  clear();
-  if (firstTurn) {
-    dice = Math.trunc(Math.random() * 12) + 1;
+  if (currentPlayer.proffession.cash >= 0) {
+    clear();
+    clear();
+    clear();
+    if (firstTurn) {
+      dice = Math.trunc(Math.random() * 12) + 1;
+    }
+    next();
   }
-  next();
 });
 let random;
 const posNeg = function () {
@@ -2032,6 +2179,9 @@ const lymp4uTick = function () {
     }
   }
 };
+
+okLoan.classList.add('hidden');
+loanValue.classList.add('hidden');
 /*
 let myt4uCostBasis1 = [];
 let gro4uCostBasis1 = [];
@@ -2080,21 +2230,78 @@ let gro4uCostBasis8 = [];
 let ok4uCostBasis8 = [];
 let gr84uCostBasis8 = [];
 let lymp4uCostBasis8 = [];
+
 */
+
 let n = 0;
-const myt4uAverage = function () {
+const stockAverage = function (stockAverage, stock, stockCost) {
   n = 0;
-  currentPlayer.myt4uAverage = 0;
-  for (let i = 0; i < currentPlayer.myt4uStock.length; i++) {
-    currentPlayer.myt4uAverage +=
-      currentPlayer.myt4uCost[i] * currentPlayer.myt4uStock[i];
-    console.log(currentPlayer.myt4uAverage);
+  stockAverage = 0;
+  for (let i = 0; i < stock.length; i++) {
+    stockAverage += stockCost[i] * stock[i];
   }
-  for (let i = 0; i < currentPlayer.myt4uStock.length; i++) {
-    n += currentPlayer.myt4uStock[i];
-    console.log(n);
+  for (let i = 0; i < stock.length; i++) {
+    n += stock[i];
   }
-  currentPlayer.myt4uAverage = Math.trunc(currentPlayer.myt4uAverage / n);
+  if (stock.length > 0) {
+    return (stockAverage = Math.trunc(stockAverage / n));
+  } else {
+    return 0;
+  }
+};
+
+const stockArr = function (stock) {
+  if (selling) {
+    n = Number(bellEl.value);
+    for (let i = 0; i < stock.length; i++) {
+      console.log('for');
+      if (n >= stock[i]) {
+        n -= stock[i];
+        stock.shift();
+      } else {
+        if (stock[i] > 0) {
+          stock[i] -= n;
+          break;
+        }
+      }
+    }
+    return stock;
+  }
+};
+
+const stockCostArr = function (stock, stockCost) {
+  if (selling) {
+    n = Number(bellEl.value);
+    for (let i = 0; i < stock.length; i++) {
+      console.log('for');
+      if (n >= stock[i]) {
+        n -= stock[i];
+        stock.shift();
+        stockCost.shift();
+      } else {
+        break;
+      }
+    }
+    return stockCost;
+  }
+};
+/*
+let n = 0;
+const stockAverage = function (stockAverage, stock, stockCost) {
+  if (buying) {
+    n = 0;
+    currentPlayer.myt4uAverage = 0;
+    for (let i = 0; i < currentPlayer.myt4uStock.length; i++) {
+      currentPlayer.myt4uAverage +=
+        currentPlayer.myt4uCost[i] * currentPlayer.myt4uStock[i];
+      console.log(currentPlayer.myt4uAverage);
+    }
+    for (let i = 0; i < currentPlayer.myt4uStock.length; i++) {
+      n += currentPlayer.myt4uStock[i];
+      console.log(n);
+    }
+    currentPlayer.myt4uAverage = Math.trunc(currentPlayer.myt4uAverage / n);
+  }
 };
 const ok4uAverage = function () {
   n = 0;
@@ -2152,3 +2359,4 @@ const lymp4uAverage = function () {
   }
   currentPlayer.lymp4uAverage = Math.trunc(currentPlayer.lymp4uAverage / n);
 };
+*/
