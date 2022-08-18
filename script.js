@@ -52,6 +52,7 @@ let btn100 = document.querySelector('.hundred');
 let btn500 = document.querySelector('.five--hundred');
 let btn1000 = document.querySelector('.one--thousand');
 let btn5000 = document.querySelector('.five--thousand');
+let maxBtn = document.querySelector('.max');
 let bellEl = document.querySelector('.bell');
 let turnEl = document.querySelector('.turn');
 let cashEl = document.querySelector('.cash');
@@ -116,7 +117,7 @@ btn100.classList.add('hidden');
 btn500.classList.add('hidden');
 btn1000.classList.add('hidden');
 btn5000.classList.add('hidden');
-
+maxBtn.classList.add('hidden');
 // let myt4uCost =
 //   Math.trunc(Math.random() * myt4u.stock.highRange) + myt4u.stock.lowRange;
 // myt4uCostEl.textContent = myt4uCost;
@@ -1324,6 +1325,29 @@ btn1000.addEventListener('click', function () {
 btn5000.addEventListener('click', function () {
   bellEl.value = 5000;
 });
+maxBtn.addEventListener('click', function () {
+  if (buyingMyt4u) {
+    bellEl.value = Math.trunc(currentPlayer.proffession.cash / myt4uCost);
+  } else if (buyingGr8) {
+    bellEl.value = Math.trunc(currentPlayer.proffession.cash / gr8Cost);
+  } else if (buyingGro4u) {
+    bellEl.value = Math.trunc(currentPlayer.proffession.cash / gro4uCost);
+  } else if (buyingOk4u) {
+    bellEl.value = Math.trunc(currentPlayer.proffession.cash / ok4uCost);
+  } else if (buyingLymp4u) {
+    bellEl.value = Math.trunc(currentPlayer.proffession.cash / lymp4uCost);
+  } else if (sellingMyt4u) {
+    bellEl.value = currentPlayer.proffession.myt4u;
+  } else if (sellingOk4u) {
+    bellEl.value = currentPlayer.proffession.ok4u;
+  } else if (sellingGro4u) {
+    bellEl.value = currentPlayer.proffession.gro4u;
+  } else if (sellingGr8) {
+    bellEl.value = currentPlayer.proffession.gr8;
+  } else if (sellingLymp4u) {
+    bellEl.value = currentPlayer.proffession.Lymp4u;
+  }
+});
 
 okButton.addEventListener('click', function () {
   okBtn();
@@ -1332,6 +1356,7 @@ okButton.addEventListener('click', function () {
   btn500.classList.add('hidden');
   btn1000.classList.add('hidden');
   btn5000.classList.add('hidden');
+  maxBtn.classList.add('hidden');
 });
 
 const sellStock = function () {
@@ -1343,6 +1368,7 @@ const sellStock = function () {
     btn500.classList.remove('hidden');
     btn1000.classList.remove('hidden');
     btn5000.classList.remove('hidden');
+    maxBtn.classList.remove('hidden');
     bellEl.value = '';
   } else if (!selling) {
     bellEl.value = '';
@@ -1353,6 +1379,7 @@ const sellStock = function () {
     btn500.classList.add('hidden');
     btn1000.classList.add('hidden');
     btn5000.classList.add('hidden');
+    maxBtn.classList.add('hidden');
   }
 };
 
@@ -1365,6 +1392,7 @@ const buyStock = function () {
     btn500.classList.remove('hidden');
     btn1000.classList.remove('hidden');
     btn5000.classList.remove('hidden');
+    maxBtn.classList.remove('hidden');
     bellEl.value = '';
   } else if (!buying) {
     bellEl.value = '';
@@ -1375,6 +1403,7 @@ const buyStock = function () {
     btn500.classList.add('hidden');
     btn1000.classList.add('hidden');
     btn5000.classList.add('hidden');
+    maxBtn.classList.add('hidden');
   }
 };
 
@@ -1384,7 +1413,13 @@ sellMyt4uEl.addEventListener('click', function () {
   buyingGro4u = false;
   buyingOk4u = false;
   buyingLymp4u = false;
-  buying = false;
+
+  sellingMyt4u = false;
+  sellingGr8 = false;
+  sellingGro4u = false;
+  sellingOk4u = false;
+  sellingLymp4u = false;
+
   if (!firstTurn) {
     if (selling) {
       selling = false;
@@ -1403,7 +1438,11 @@ buyMyt4uEl.addEventListener('click', function () {
   sellingGro4u = false;
   sellingOk4u = false;
   sellingLymp4u = false;
-  selling = false;
+  buyingGr8 = false;
+  buyingGro4u = false;
+  buyingOk4u = false;
+  buyingLymp4u = false;
+
   if (!firstTurn) {
     if (buyingMyt4u) {
       buying = false;
@@ -1422,7 +1461,13 @@ sellOk4uEl.addEventListener('click', function () {
   buyingGro4u = false;
   buyingOk4u = false;
   buyingLymp4u = false;
-  buying = false;
+
+  sellingMyt4u = false;
+  sellingGr8 = false;
+  sellingGro4u = false;
+  sellingOk4u = false;
+  sellingLymp4u = false;
+
   if (!firstTurn) {
     if (selling) {
       selling = false;
@@ -1441,7 +1486,13 @@ buyGro4uEl.addEventListener('click', function () {
   sellingGro4u = false;
   sellingOk4u = false;
   sellingLymp4u = false;
-  selling = false;
+
+  buyingMyt4u = false;
+  buyingGr8 = false;
+
+  buyingOk4u = false;
+  buyingLymp4u = false;
+
   if (!firstTurn) {
     if (buyingGro4u) {
       buying = false;
@@ -1460,7 +1511,13 @@ sellGro4uEl.addEventListener('click', function () {
   buyingGro4u = false;
   buyingOk4u = false;
   buyingLymp4u = false;
-  buying = false;
+
+  sellingMyt4u = false;
+  sellingGr8 = false;
+  sellingGro4u = false;
+  sellingOk4u = false;
+  sellingLymp4u = false;
+
   if (!firstTurn) {
     if (selling) {
       selling = false;
@@ -1479,7 +1536,13 @@ sellGr8El.addEventListener('click', function () {
   buyingGro4u = false;
   buyingOk4u = false;
   buyingLymp4u = false;
-  buying = false;
+
+  sellingMyt4u = false;
+  sellingGr8 = false;
+  sellingGro4u = false;
+  sellingOk4u = false;
+  sellingLymp4u = false;
+
   if (!firstTurn) {
     if (selling) {
       selling = false;
@@ -1498,7 +1561,13 @@ buyGr8El.addEventListener('click', function () {
   sellingGro4u = false;
   sellingOk4u = false;
   sellingLymp4u = false;
-  selling = false;
+
+  buyingMyt4u = false;
+
+  buyingGro4u = false;
+  buyingOk4u = false;
+  buyingLymp4u = false;
+
   if (!firstTurn) {
     if (buyingGr8) {
       buying = false;
@@ -1517,7 +1586,12 @@ buyLymp4uEl.addEventListener('click', function () {
   sellingGro4u = false;
   sellingOk4u = false;
   sellingLymp4u = false;
-  selling = false;
+
+  buyingMyt4u = false;
+  buyingGr8 = false;
+  buyingGro4u = false;
+  buyingOk4u = false;
+
   if (!firstTurn) {
     if (buyingLymp4u) {
       buying = false;
@@ -1536,7 +1610,11 @@ sellLymp4uEl.addEventListener('click', function () {
   buyingGro4u = false;
   buyingOk4u = false;
   buyingLymp4u = false;
-  buying = false;
+  sellingMyt4u = false;
+  sellingGr8 = false;
+  sellingGro4u = false;
+  sellingOk4u = false;
+
   if (!firstTurn) {
     if (selling) {
       selling = false;
@@ -1555,6 +1633,12 @@ buyOk4uEl.addEventListener('click', function () {
   sellingGro4u = false;
   sellingOk4u = false;
   sellingLymp4u = false;
+  buyingMyt4u = false;
+  buyingGr8 = false;
+  buyingGro4u = false;
+
+  buyingLymp4u = false;
+
   if (!firstTurn) {
     if (buyingOk4u) {
       buying = false;
@@ -2250,25 +2334,28 @@ const stockAverage = function (stockAverage, stock, stockCost) {
   }
 };
 
+n = 0;
 const stockArr = function (stock) {
+  n = 0;
   if (selling) {
     n = Number(bellEl.value);
     for (let i = 0; i < stock.length; i++) {
-      console.log('for');
+      console.log(i);
       if (n >= stock[i]) {
+        console.log('for');
         n -= stock[i];
         stock.shift();
-      } else {
-        if (stock[i] > 0) {
-          stock[i] -= n;
-          break;
-        }
+        i -= 1;
+      } else if (stock[i] > 0) {
+        stock[i] -= n;
+        console.log('ford');
+        break;
       }
     }
     return stock;
   }
 };
-
+/*
 const stockCostArr = function (stock, stockCost) {
   if (selling) {
     n = Number(bellEl.value);
@@ -2285,78 +2372,6 @@ const stockCostArr = function (stock, stockCost) {
     return stockCost;
   }
 };
-/*
-let n = 0;
-const stockAverage = function (stockAverage, stock, stockCost) {
-  if (buying) {
-    n = 0;
-    currentPlayer.myt4uAverage = 0;
-    for (let i = 0; i < currentPlayer.myt4uStock.length; i++) {
-      currentPlayer.myt4uAverage +=
-        currentPlayer.myt4uCost[i] * currentPlayer.myt4uStock[i];
-      console.log(currentPlayer.myt4uAverage);
-    }
-    for (let i = 0; i < currentPlayer.myt4uStock.length; i++) {
-      n += currentPlayer.myt4uStock[i];
-      console.log(n);
-    }
-    currentPlayer.myt4uAverage = Math.trunc(currentPlayer.myt4uAverage / n);
-  }
-};
-const ok4uAverage = function () {
-  n = 0;
-  currentPlayer.ok4uAverage = 0;
-  for (let i = 0; i < currentPlayer.ok4uStock.length; i++) {
-    currentPlayer.ok4uAverage +=
-      currentPlayer.ok4uCost[i] * currentPlayer.ok4uStock[i];
-    console.log(currentPlayer.ok4uAverage);
-  }
-  for (let i = 0; i < currentPlayer.ok4uStock.length; i++) {
-    n += currentPlayer.ok4uStock[i];
-    console.log(n);
-  }
-  currentPlayer.ok4uAverage = Math.trunc(currentPlayer.ok4uAverage / n);
-};
-const gro4uAverage = function () {
-  n = 0;
-  currentPlayer.gro4uAverage = 0;
-  for (let i = 0; i < currentPlayer.gro4uStock.length; i++) {
-    currentPlayer.gro4uAverage +=
-      currentPlayer.gro4uCost[i] * currentPlayer.gro4uStock[i];
-    console.log(currentPlayer.gro4uAverage);
-  }
-  for (let i = 0; i < currentPlayer.gro4uStock.length; i++) {
-    n += currentPlayer.gro4uStock[i];
-    console.log(n);
-  }
-  currentPlayer.gro4uAverage = Math.trunc(currentPlayer.gro4uAverage / n);
-};
-const gr8Average = function () {
-  n = 0;
-  currentPlayer.gr8Average = 0;
-  for (let i = 0; i < currentPlayer.gr8Stock.length; i++) {
-    currentPlayer.gr8Average +=
-      currentPlayer.gr8Cost[i] * currentPlayer.gr8Stock[i];
-    console.log(currentPlayer.gr8Average);
-  }
-  for (let i = 0; i < currentPlayer.gr8Stock.length; i++) {
-    n += currentPlayer.gr8Stock[i];
-    console.log(n);
-  }
-  currentPlayer.gr8Average = Math.trunc(currentPlayer.gr8Average / n);
-};
-const lymp4uAverage = function () {
-  n = 0;
-  currentPlayer.lymp4uAverage = 0;
-  for (let i = 0; i < currentPlayer.lymp4uStock.length; i++) {
-    currentPlayer.lymp4uAverage +=
-      currentPlayer.lymp4uCost[i] * currentPlayer.lymp4uStock[i];
-    console.log(currentPlayer.lymp4uAverage);
-  }
-  for (let i = 0; i < currentPlayer.lymp4uStock.length; i++) {
-    n += currentPlayer.lymp4uStock[i];
-    console.log(n);
-  }
-  currentPlayer.lymp4uAverage = Math.trunc(currentPlayer.lymp4uAverage / n);
-};
+
+//work please please work
 */
