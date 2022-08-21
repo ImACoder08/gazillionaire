@@ -7,7 +7,17 @@ const playerCount = function () {
   }
 };
 playerCount();
-
+const posNeg = function () {
+  random = Math.trunc(Math.random() * 2) + 1;
+  if (random == 1) {
+    positive = false;
+    negative = true;
+  } else {
+    positive = true;
+    negative = false;
+  }
+};
+let random;
 //comment
 //Variables
 
@@ -73,6 +83,28 @@ let okLoan = document.querySelector('.okLoan');
 let loanValue = document.querySelector('.loanN');
 let paybackLoan = document.querySelector('.paybackLoan');
 paybackLoan.classList.add('hidden');
+
+let housesBusinessEl = document.querySelector('.house');
+let houseBusinessYes = document.querySelector('.yes');
+let houseBusinessNo = document.querySelector('.no');
+houseBusinessNo.classList.add('hidden');
+houseBusinessYes.classList.add('hidden');
+housesBusinessEl.textContent =
+  ' There are no houses to buy and no businesses to claim';
+let currentSell = ' There are no houses to buy and no businesses to claim';
+
+let houseSell1 = document.querySelector('.realBusiness1Sell');
+let houseSell2 = document.querySelector('.realBusiness2Sell');
+let houseSell3 = document.querySelector('.realBusiness3Sell');
+let houseSell4 = document.querySelector('.realBusiness4Sell');
+let houseSell5 = document.querySelector('.realBusiness5Sell');
+let houseSell6 = document.querySelector('.realBusiness6Sell');
+houseSell1.classList.add('hidden');
+houseSell2.classList.add('hidden');
+houseSell3.classList.add('hidden');
+houseSell4.classList.add('hidden');
+houseSell5.classList.add('hidden');
+houseSell6.classList.add('hidden');
 //Booleans
 let driverBought = false;
 let teacherBought = false;
@@ -118,22 +150,6 @@ btn500.classList.add('hidden');
 btn1000.classList.add('hidden');
 btn5000.classList.add('hidden');
 maxBtn.classList.add('hidden');
-// let myt4uCost =
-//   Math.trunc(Math.random() * myt4u.stock.highRange) + myt4u.stock.lowRange;
-// myt4uCostEl.textContent = myt4uCost;
-// let gro4uCost =
-//   Math.trunc(Math.random() * gro4u.stock.highRange) + gro4u.stock.lowRange;
-// gro4uCostEl.textContent = gro4uCost;
-// let gr8Cost =
-//   Math.trunc(Math.random() * gr8.stock.highRange) + gr8.stock.lowRange;
-// gr8CostEl.textContent = gr8Cost;
-// let ok4uCost =
-//   Math.trunc(Math.random() * ok4u.stock.highRange) + ok4u.stock.lowRange;
-// ok4uCostEl.textContent = ok4uCost;
-// let lymp4uCost =
-//   Math.trunc(Math.random() * lymp4u.stock.highRange) + lymp4u.stock.lowRange;
-// lymp4uCostEl.textContent = lymp4uCost;
-// ok4uCostEl.textContent = ok4uCost;
 
 //Number Declares
 let turn = 1;
@@ -357,189 +373,6 @@ document.addEventListener('keydown', function (e) {
 });
 
 let doodadArr = [];
-
-const doodad1 = {
-  doodad1: 'Your car broke down pay 1500',
-  doodad1Cost: 1500,
-};
-const doodad2 = {
-  doodad2: 'You Decide the take your family to a nice dinner',
-  doodad2Cost: 200,
-};
-const doodad3 = {
-  doodad3: 'Your friend bets 1000 you cant juggle, you lose the bet',
-  doodad3Cost: 1000,
-};
-const doodad4 = {
-  doodad4: 'As you drive home you buy some lemonade from some kids',
-  doodad4Cost: 30,
-};
-const doodad5 = {
-  doodad5: 'You buy some expensive jewelry',
-  doodad5Cost: 700,
-};
-const doodad6 = {
-  doodad6: 'Your water heater leaks',
-  doodad6Cost: 800,
-};
-const doodad7 = {
-  doodad7: 'New Boat',
-  doodad7Cost: 8000,
-};
-const doodad8 = {
-  doodad8: 'Park in handicap zone',
-  doodad8Cost: 100,
-};
-const doodad9 = {
-  doodad9: 'Big Screen TV',
-  doodad9Cost: 4000,
-};
-const doodad10 = {
-  doodad10: 'Pay Admission to a sporting event',
-  doodad10Cost: 15,
-};
-const doodad11 = {
-  doodad11: 'Pay admission to a sporting event',
-  doodad11Cost: 50,
-};
-const doodad12 = {
-  doodad12: 'Pay admission to a sporting event',
-  doodad12Cost: 150,
-};
-const doodad13 = {
-  doodad13: 'Pay admission to a sporting event',
-  doodad13Cost: 1000,
-};
-const doodad14 = {
-  doodad14: 'Buy New Fishing Rod!',
-  doodad14Cost: 100,
-};
-const doodad15 = {
-  doodad15: 'Cars air conditioning dies',
-  doodad15Cost: 600,
-};
-const doodad16 = {
-  doodad16: 'Pay Taxes',
-  doodad16Cost: 650,
-};
-const doodad17 = {
-  doodad17: 'Enter a 5k',
-  doodad17Cost: 35,
-};
-const doodad18 = {
-  doodad18: 'Go to a casino',
-  doodad18Cost: 200,
-};
-const doodad19 = {
-  doodad19: 'Family Vacation!',
-  doodad19Cost: 2000,
-};
-const doodad20 = {
-  doodad20: 'New Clothing',
-  doodad20Cost: 200,
-};
-const doodad21 = {
-  doodad21: 'Signed Mr beast team shirt',
-  doodad21Cost: 600,
-};
-const doodad22 = {
-  doodad22: 'Get a New bowling ball',
-  doodad22Cost: 60,
-};
-const doodad23 = {
-  doodad23: 'Buy new lawn mower',
-  doodad23Cost: 300,
-};
-const doodad24 = {
-  doodad24: 'Buy a new watch',
-  doodad24Cost: 200,
-};
-const doodad25 = {
-  doodad25: 'Give Money to charity',
-  doodad25Cost: 300,
-};
-const doodad26 = {
-  doodad26: 'Lost Wallet',
-  doodad26Cost: 50,
-};
-const doodad27 = {
-  doodad27: 'No Doodad this month',
-  doodadCost27: 0,
-};
-const doodad28 = {
-  doodad28: 'Fined for speeding',
-  doodadCost28: 120,
-};
-const doodad29 = {
-  doodad29: 'Visit Dentist',
-  doodad29Cost: 200,
-};
-const doodad30 = {
-  doodad30: 'Buy Furniture',
-  doodad30Cost: 300,
-};
-const doodad31 = {
-  doodad31: 'Go to a concert in vip',
-  doodad31Cost: 300,
-};
-const doodad32 = {
-  doodad32: 'Get Scammed Online',
-  doodad32Cost: 5000,
-};
-const doodad33 = {
-  doodad33: 'Enter a video game tournament',
-  doodad33Cost: 50,
-};
-const doodad34 = {
-  doodad34: 'Buy a signed nintendo switch',
-  doodad34Cost: 7000,
-};
-const doodad35 = {
-  doodad35: 'No doodad this month',
-  doodad35Cost: 0,
-};
-const doodad36 = {
-  doodad36: 'No doodad this month',
-  doodadCost36: 0,
-};
-doodadArr.push(
-  doodad1,
-  doodad2,
-  doodad3,
-  doodad4,
-  doodad5,
-  doodad6,
-  doodad7,
-  doodad8,
-  doodad9,
-  doodad10,
-  doodad11,
-  doodad12,
-  doodad13,
-  doodad14,
-  doodad15,
-  doodad16,
-  doodad17,
-  doodad18,
-  doodad19,
-  doodad20,
-  doodad21,
-  doodad22,
-  doodad23,
-  doodad24,
-  doodad25,
-  doodad26,
-  doodad27,
-  doodad28,
-  doodad29,
-  doodad30,
-  doodad31,
-  doodad32,
-  doodad33,
-  doodad34,
-  doodad35,
-  doodad36
-);
 
 const pilot = {
   proffession: 'Pilot',
@@ -816,167 +649,45 @@ const driver = {
   passive: 0,
   cash: 0,
 };
+let d = 1;
+const Player = function () {
+  (this.number = d),
+    (this.proffession = 'homeless'),
+    (this.myt4uCost = []),
+    (this.gro4uCost = []),
+    (this.gr8Cost = []),
+    (this.ok4uCost = []),
+    (this.lymp4uCost = []),
+    (this.myt4uStock = []),
+    (this.gro4uStock = []),
+    (this.ok4uStock = []),
+    (this.gr8Stock = []),
+    (this.lymp4uStock = []),
+    (this.myt4uAverage = 0),
+    (this.ok4uAverage = 0),
+    (this.gro4uAverage = 0),
+    (this.gr8Average = 0),
+    (this.lymp4uAverage = 0),
+    (this.currentLoan = 0);
+  (this.assets = 0),
+    (this.realBusiness1 = 0),
+    (this.realBusiness2 = 0),
+    (this.realBusiness3 = 0),
+    (this.realBusiness4 = 0),
+    (this.realBusiness5 = 0),
+    (this.realBusiness6 = 0),
+    (this.passive = 0),
+    (d += 1);
+};
+const player1 = new Player();
+const player2 = new Player();
+const player3 = new Player();
+const player4 = new Player();
+const player5 = new Player();
+const player6 = new Player();
+const player7 = new Player();
 
-const player1 = {
-  number: 1,
-  proffession: 'homeless',
-  myt4uCost: [],
-  gro4uCost: [],
-  gr8Cost: [],
-  ok4uCost: [],
-  lymp4uCost: [],
-  myt4uStock: [],
-  gro4uStock: [],
-  ok4uStock: [],
-  gr8Stock: [],
-  lymp4uStock: [],
-  myt4uAverage: 0,
-  ok4uAverage: 0,
-  gro4uAverage: 0,
-  gr8Average: 0,
-  lymp4uAverage: 0,
-  currentLoan: 0,
-};
-const player2 = {
-  number: 2,
-  proffession: 'homeless',
-  myt4uCost: [],
-  gro4uCost: [],
-  gr8Cost: [],
-  ok4uCost: [],
-  lymp4uCost: [],
-  myt4uStock: [],
-  gro4uStock: [],
-  ok4uStock: [],
-  gr8Stock: [],
-  lymp4uStock: [],
-  myt4uAverage: 0,
-  ok4uAverage: 0,
-  gro4uAverage: 0,
-  gr8Average: 0,
-  lymp4uAverage: 0,
-  currentLoan: 0,
-};
-const player3 = {
-  number: 3,
-  proffession: 'homeless',
-  myt4uCost: [],
-  gro4uCost: [],
-  gr8Cost: [],
-  ok4uCost: [],
-  lymp4uCost: [],
-  myt4uStock: [],
-  gro4uStock: [],
-  ok4uStock: [],
-  gr8Stock: [],
-  lymp4uStock: [],
-  myt4uAverage: 0,
-  ok4uAverage: 0,
-  gro4uAverage: 0,
-  gr8Average: 0,
-  lymp4uAverage: 0,
-  currentLoan: 0,
-};
-const player4 = {
-  number: 4,
-  proffession: 'homeless',
-  myt4uCost: [],
-  gro4uCost: [],
-  gr8Cost: [],
-  ok4uCost: [],
-  lymp4uCost: [],
-  myt4uStock: [],
-  gro4uStock: [],
-  ok4uStock: [],
-  gr8Stock: [],
-  lymp4uStock: [],
-  myt4uAverage: 0,
-  ok4uAverage: 0,
-  gro4uAverage: 0,
-  gr8Average: 0,
-  lymp4uAverage: 0,
-  currentLoan: 0,
-};
-const player5 = {
-  number: 5,
-  proffession: 'homeless',
-  myt4uCost: [],
-  gro4uCost: [],
-  gr8Cost: [],
-  ok4uCost: [],
-  lymp4uCost: [],
-  myt4uStock: [],
-  gro4uStock: [],
-  ok4uStock: [],
-  gr8Stock: [],
-  lymp4uStock: [],
-  myt4uAverage: 0,
-  ok4uAverage: 0,
-  gro4uAverage: 0,
-  gr8Average: 0,
-  lymp4uAverage: 0,
-  currentLoan: 0,
-};
-const player6 = {
-  number: 6,
-  proffession: 'homeless',
-  myt4uCost: [],
-  gro4uCost: [],
-  gr8Cost: [],
-  ok4uCost: [],
-  lymp4uCost: [],
-  myt4uStock: [],
-  gro4uStock: [],
-  ok4uStock: [],
-  gr8Stock: [],
-  lymp4uStock: [],
-  myt4uAverage: 0,
-  ok4uAverage: 0,
-  gro4uAverage: 0,
-  gr8Average: 0,
-  lymp4uAverage: 0,
-  currentLoan: 0,
-};
-const player7 = {
-  number: 7,
-  proffession: 'homeless',
-  myt4uCost: [],
-  gro4uCost: [],
-  gr8Cost: [],
-  ok4uCost: [],
-  lymp4uCost: [],
-  myt4uStock: [],
-  gro4uStock: [],
-  ok4uStock: [],
-  gr8Stock: [],
-  lymp4uStock: [],
-  myt4uAverage: 0,
-  ok4uAverage: 0,
-  gro4uAverage: 0,
-  gr8Average: 0,
-  lymp4uAverage: 0,
-  currentLoan: 0,
-};
-const player8 = {
-  number: 8,
-  proffession: 'homeless',
-  myt4uCost: [],
-  gro4uCost: [],
-  gr8Cost: [],
-  ok4uCost: [],
-  lymp4uCost: [],
-  myt4uStock: [],
-  gro4uStock: [],
-  ok4uStock: [],
-  gr8Stock: [],
-  lymp4uStock: [],
-  myt4uAverage: 0,
-  ok4uAverage: 0,
-  gro4uAverage: 0,
-  gr8Average: 0,
-  lymp4uAverage: 0,
-  currentLoan: 0,
-};
+const player8 = new Player();
 
 let currentPlayer = player1;
 
@@ -994,6 +705,191 @@ let jobs = {
   businessManager,
   pilot,
 };
+
+const doodad1 = {
+  doodad: 'Your car broke down',
+  doodadCost: 1500,
+};
+const doodad2 = {
+  doodad: 'You Decide to take your family to a nice dinner',
+  doodadCost: 200,
+};
+const doodad3 = {
+  doodad: 'Your friend bets 1000 you cant juggle, you lose the bet',
+  doodadCost: 1000,
+};
+const doodad4 = {
+  doodad: 'As you drive home you buy some lemonade from some kids',
+  doodadCost: 30,
+};
+const doodad5 = {
+  doodad: 'You buy some expensive jewelry',
+  doodadCost: 700,
+};
+const doodad6 = {
+  doodad: 'Your water heater leaks',
+  doodadCost: 800,
+};
+const doodad7 = {
+  doodad: 'New Boat',
+  doodadCost: 8000,
+};
+const doodad8 = {
+  doodad: 'Park in handicap zone',
+  doodadCost: 100,
+};
+const doodad9 = {
+  doodad: 'Big Screen TV',
+  doodadCost: 4000,
+};
+const doodad10 = {
+  doodad: 'Pay Admission to a sporting event',
+  doodadCost: 15,
+};
+const doodad11 = {
+  doodad: 'Pay admission to a sporting event',
+  doodadCost: 50,
+};
+const doodad12 = {
+  doodad: 'Pay admission to a sporting event',
+  doodadCost: 150,
+};
+const doodad13 = {
+  doodad: 'Pay admission to a sporting event',
+  doodadCost: 1000,
+};
+const doodad14 = {
+  doodad: 'Buy New Fishing Rod!',
+  doodadCost: 100,
+};
+const doodad15 = {
+  doodad: 'Cars air conditioning dies',
+  doodadCost: 600,
+};
+const doodad16 = {
+  doodad: 'Pay Taxes',
+  doodadCost: currentPlayer.proffession.cashFlow * 4,
+};
+const doodad17 = {
+  doodad: 'Enter a 5k',
+  doodadCost: 35,
+};
+const doodad18 = {
+  doodad: 'Go to a casino',
+  doodadCost:
+    currentPlayer.proffession.cashFlow * Math.trunc(Math.random() * 12) + 1,
+};
+const doodad19 = {
+  doodad: 'Family Vacation!',
+  doodadCost: currentPlayer.proffession.cashFlow * 6,
+};
+const doodad20 = {
+  doodad: 'New Clothing',
+  doodadCost: Math.trunc(currentPlayer.proffession.cashFlow * 1.4),
+};
+const doodad21 = {
+  doodad: 'Signed Mr beast team shirt',
+  doodadCost: 600,
+};
+const doodad22 = {
+  doodad: 'Get a New bowling ball',
+  doodadCost: currentPlayer.proffession.cashFlow * 4,
+};
+const doodad23 = {
+  doodad: 'Buy new lawn mower',
+  doodadCost: 300,
+};
+const doodad24 = {
+  doodad: 'Buy a new watch',
+  doodadCost: currentPlayer.proffession.cashFlow * 3,
+};
+const doodad25 = {
+  doodad: 'Give Money to charity',
+  doodadCost: currentPlayer.proffession.cashFlow * 10,
+};
+const doodad26 = {
+  doodad: 'Lost Wallet',
+  doodadCost: Math.trunc(currentPlayer.proffession.cashFlow * 1.5),
+};
+const doodad27 = {
+  doodad: 'No Doodad this month',
+  doodadCost: 0,
+};
+const doodad28 = {
+  doodad: 'Fined for speeding',
+  doodadCost: 120,
+};
+const doodad29 = {
+  doodad: 'Visit Dentist',
+  doodadCost: currentPlayer.proffession.cashFlow * 2,
+};
+const doodad30 = {
+  doodad: 'Buy Furniture',
+  doodadCost: 300,
+};
+const doodad31 = {
+  doodad: 'Go to a concert in vip',
+  doodadCost: 300,
+};
+const doodad32 = {
+  doodad: 'Get Scammed Online',
+  doodadCost: currentPlayer.proffession.cashFlow * 8,
+};
+const doodad33 = {
+  doodad: 'Enter a video game tournament',
+  doodadCost: Math.trunc(currentPlayer.proffession.cashFlow * 0.5),
+};
+const doodad34 = {
+  doodad: 'Buy a signed nintendo switch',
+  doodadCost: currentPlayer.proffession.cashFlow * 5,
+};
+const doodad35 = {
+  doodad: 'No doodad this month',
+  doodadCost: 0,
+};
+const doodad36 = {
+  doodad: 'No doodad this month',
+  doodadCost: 0,
+};
+
+doodadArr.push(
+  doodad1,
+  doodad2,
+  doodad3,
+  doodad4,
+  doodad5,
+  doodad6,
+  doodad7,
+  doodad8,
+  doodad9,
+  doodad10,
+  doodad11,
+  doodad12,
+  doodad13,
+  doodad14,
+  doodad15,
+  doodad16,
+  doodad17,
+  doodad18,
+  doodad19,
+  doodad20,
+  doodad21,
+  doodad22,
+  doodad23,
+  doodad24,
+  doodad25,
+  doodad26,
+  doodad27,
+  doodad28,
+  doodad29,
+  doodad30,
+  doodad31,
+  doodad32,
+  doodad33,
+  doodad34,
+  doodad35,
+  doodad36
+);
 
 //removedEl = objArr.splice(0, 1);
 
@@ -1063,7 +959,7 @@ const fillIn = function (player) {
   gr8El.textContent = player.proffession.gr8;
   lymp4uEl.textContent = player.proffession.lymp4u;
   passiveEl.textContent = player.proffession.passive;
-  cashEl.textContent = Math.trunc(player.proffession.cash);
+  cashEl.textContent = player.proffession.cash;
   myt4uCostEl.textContent = myt4uCost;
   gro4uCostEl.textContent = gro4uCost;
   gr8CostEl.textContent = gr8Cost;
@@ -1100,6 +996,8 @@ const fillIn = function (player) {
   lymp4uboughtEl.textContent = currentPlayer.lymp4uAverage;
   gr8boughtEl.textContent = currentPlayer.gr8Average;
   loanEl.textContent = currentPlayer.currentLoan;
+  housesBusinessEl.textContent = currentSell;
+  passiveEl.textContent = currentPlayer.passive;
 };
 
 //buy--
@@ -1345,7 +1243,7 @@ maxBtn.addEventListener('click', function () {
   } else if (sellingGr8) {
     bellEl.value = currentPlayer.proffession.gr8;
   } else if (sellingLymp4u) {
-    bellEl.value = currentPlayer.proffession.Lymp4u;
+    bellEl.value = currentPlayer.proffession.lymp4u;
   }
 });
 
@@ -1660,29 +1558,38 @@ let totalStock =
 okLoan.addEventListener('click', function () {
   okLoan.classList.add('hidden');
   loanValue.classList.add('hidden');
-  if (getting && totalStock * 1000 >= parseInt(loanValue.value)) {
+  if (
+    getting &&
+    totalStock * 1000 + 10000 >= parseInt(loanValue.value) &&
+    parseInt(loanValue.value) > 0
+  ) {
     currentPlayer.currentLoan += parseInt(loanValue.value);
-    currentPlayer.proffession.totalExpenses +=
-      currentPlayer.currentLoan * interest;
-    currentPlayer.proffession.cashFlow -= currentPlayer.currentLoan * interest;
+    currentPlayer.proffession.totalExpenses += Math.round(
+      parseInt(loanValue.value) * interest
+    );
+    currentPlayer.proffession.cashFlow -= Math.round(
+      parseInt(loanValue.value) * interest
+    );
     currentPlayer.proffession.cash += parseInt(loanValue.value);
     if (currentPlayer.currentLoan > 0) {
       paybackLoan.classList.remove('hidden');
     }
-  } else {
-    if (
-      parseInt(loanValue.value) <= currentPlayer.proffession.cash &&
-      currentPlayer.currentLoan >= parseInt(loanValue.value)
-    ) {
-      currentPlayer.currentLoan -= parseInt(loanValue.value);
-      currentPlayer.proffession.totalExpenses -=
-        parseInt(loanValue.value) * interest;
-      currentPlayer.proffession.cashFlow +=
-        parseInt(loanValue.value) * interest;
-      currentPlayer.proffession.cash -= parseInt(loanValue.value);
-      if (currentPlayer.currentLoan == 0) {
-        paybackLoan.classList.add('hidden');
-      }
+  } else if (
+    paying &&
+    parseInt(loanValue.value) <= currentPlayer.proffession.cash &&
+    currentPlayer.currentLoan >= parseInt(loanValue.value)
+  ) {
+    currentPlayer.currentLoan -= parseInt(loanValue.value);
+    currentPlayer.proffession.totalExpenses -= Math.round(
+      parseInt(loanValue.value) * interest
+    );
+    currentPlayer.proffession.cashFlow += Math.round(
+      parseInt(loanValue.value) * interest
+    );
+    Math.round(currentPlayer.proffession.cashFlow);
+    currentPlayer.proffession.cash -= parseInt(loanValue.value);
+    if (currentPlayer.currentLoan == 0) {
+      paybackLoan.classList.add('hidden');
     }
   }
   fillIn(currentPlayer);
@@ -1701,10 +1608,12 @@ loanBtn.addEventListener('click', function () {
   if (!firstTurn && !getting) {
     loanValue.value = '';
     getting = true;
+    paying = false;
     okLoan.classList.toggle('hidden');
     loanValue.classList.toggle('hidden');
   } else if (!firstTurn) {
     getting = false;
+    paying = false;
     okLoan.classList.toggle('hidden');
     loanValue.classList.toggle('hidden');
   }
@@ -1714,13 +1623,155 @@ paybackLoan.addEventListener('click', function () {
   if (!firstTurn && !paying) {
     loanValue.value = '';
     paying = true;
+    getting = false;
     okLoan.classList.toggle('hidden');
     loanValue.classList.toggle('hidden');
   } else {
     paying = false;
+    getting = false;
     okLoan.classList.toggle('hidden');
     loanValue.classList.toggle('hidden');
   }
+});
+
+houseBusinessNo.addEventListener('click', function () {
+  currentSell = ' There are no houses to buy and no businesses to claim';
+  houseBusinessNo.classList.add('hidden');
+  houseBusinessYes.classList.add('hidden');
+  fillIn(currentPlayer);
+});
+
+houseBusinessYes.addEventListener('click', function () {
+  if (currentPlayer.proffession.cash >= currentAsset.cost) {
+    houseBusinessNo.classList.add('hidden');
+    houseBusinessYes.classList.add('hidden');
+    if (currentPlayer.realBusiness1 == 0) {
+      currentPlayer.proffession.cash -= currentAsset.cost;
+      currentPlayer.proffession.realBusiness1 =
+        currentAsset.type +
+        ' Sell for: ' +
+        currentAsset.cost +
+        ' Max Cashflow: ' +
+        currentAsset.maxCashflow;
+      currentPlayer.realBusiness1 = currentAsset;
+      houseSell1.classList.remove('hidden');
+      currentPlayer.assets = 1;
+    } else if (currentPlayer.realBusiness2 == 0) {
+      currentPlayer.proffession.cash -= currentAsset.cost;
+      currentPlayer.proffession.realBusiness2 =
+        currentAsset.type +
+        ' Sell for: ' +
+        currentAsset.cost +
+        ' Max Cashflow: ' +
+        currentAsset.maxCashflow;
+      currentPlayer.realBusiness2 = currentAsset;
+      houseSell2.classList.remove('hidden');
+      currentPlayer.assets = 2;
+    } else if (currentPlayer.realBusiness3 == 0) {
+      currentPlayer.proffession.cash -= currentAsset.cost;
+      currentPlayer.proffession.realBusiness3 =
+        currentAsset.type +
+        ' Sell for: ' +
+        currentAsset.cost +
+        ' Max Cashflow: ' +
+        currentAsset.maxCashflow;
+      currentPlayer.realBusiness3 = currentAsset;
+      houseSell3.classList.remove('hidden');
+      currentPlayer.assets = 3;
+    } else if (currentPlayer.realBusiness4 == 0) {
+      currentPlayer.proffession.cash -= currentAsset.cost;
+      currentPlayer.proffession.realBusiness4 =
+        currentAsset.type +
+        ' Sell for: ' +
+        currentAsset.cost +
+        ' Max Cashflow: ' +
+        currentAsset.maxCashflow;
+      currentPlayer.realBusiness4 = currentAsset;
+      houseSell4.classList.remove('hidden');
+      currentPlayer.assets = 4;
+    } else if (currentPlayer.realBusiness5 == 0) {
+      currentPlayer.proffession.cash -= currentAsset.cost;
+      currentPlayer.proffession.realBusiness5 =
+        currentAsset.type +
+        ' Sell for: ' +
+        currentAsset.cost +
+        ' Max Cashflow: ' +
+        currentAsset.maxCashflow;
+      currentPlayer.realBusiness5 = currentAsset;
+      houseSell5.classList.remove('hidden');
+      currentPlayer.assets = 5;
+    } else if (currentPlayer.realBusiness6 == 0) {
+      currentPlayer.proffession.cash -= currentAsset.cost;
+      currentPlayer.proffession.realBusiness6 =
+        currentAsset.type +
+        ' Sell for: ' +
+        currentAsset.cost +
+        ' Max Cashflow: ' +
+        currentAsset.maxCashflow;
+      currentPlayer.realBusiness6 = currentAsset;
+      houseSell6.classList.remove('hidden');
+      currentPlayer.assets = 6;
+    }
+    currentSell = ' There are no houses to buy and no businesses to claim';
+    fillIn(currentPlayer);
+  }
+
+  fillIn(currentPlayer);
+});
+
+houseSell1.addEventListener('click', function () {
+  currentPlayer.proffession.cash += currentPlayer.realBusiness1.cost;
+  currentPlayer.proffession.cashFlow -= currentPlayer.realBusiness1.cashflow;
+  houseSell1.classList.add('hidden');
+  currentPlayer.passive -= currentPlayer.realBusiness1.cashflow;
+  currentPlayer.proffession.realBusiness1 = 0;
+  currentPlayer.realBusiness1 = 0;
+  fillIn(currentPlayer);
+});
+houseSell2.addEventListener('click', function () {
+  currentPlayer.proffession.cash += currentPlayer.realBusiness2.cost;
+  currentPlayer.proffession.cashFlow -= currentPlayer.realBusiness2.cashflow;
+  houseSell2.classList.add('hidden');
+  currentPlayer.passive -= currentPlayer.realBusiness2.cashflow;
+  currentPlayer.proffession.realBusiness2 = 0;
+  currentPlayer.realBusiness2 = 0;
+  fillIn(currentPlayer);
+});
+houseSell3.addEventListener('click', function () {
+  currentPlayer.proffession.cash += currentPlayer.realBusiness3.cost;
+  currentPlayer.proffession.cashFlow -= currentPlayer.realBusiness3.cashflow;
+  houseSell3.classList.add('hidden');
+  currentPlayer.passive -= currentPlayer.realBusiness3.cashflow;
+  currentPlayer.proffession.realBusiness3 = 0;
+  currentPlayer.realBusiness3 = 0;
+  fillIn(currentPlayer);
+});
+houseSell4.addEventListener('click', function () {
+  currentPlayer.proffession.cash += currentPlayer.realBusiness4.cost;
+  currentPlayer.proffession.cashFlow -= currentPlayer.realBusiness4.cashflow;
+  houseSell4.classList.add('hidden');
+  currentPlayer.passive -= currentPlayer.realBusiness4.cashflow;
+  currentPlayer.proffession.realBusiness4 = 0;
+  currentPlayer.realBusiness4 = 0;
+  fillIn(currentPlayer);
+});
+houseSell5.addEventListener('click', function () {
+  currentPlayer.proffession.cash += currentPlayer.realBusiness5.cost;
+  currentPlayer.proffession.cashFlow -= currentPlayer.realBusiness5.cashflow;
+  houseSell5.classList.add('hidden');
+  currentPlayer.passive -= currentPlayer.realBusiness5.cashflow;
+  currentPlayer.proffession.realBusiness5 = 0;
+  currentPlayer.realBusiness5 = 0;
+  fillIn(currentPlayer);
+});
+houseSell6.addEventListener('click', function () {
+  currentPlayer.proffession.cash += currentPlayer.realBusiness6.cost;
+  currentPlayer.proffession.cashFlow -= currentPlayer.realBusiness6.cashflow;
+  houseSell6.classList.add('hidden');
+  currentPlayer.passive -= currentPlayer.realBusiness6.cashflow;
+  currentPlayer.proffession.realBusiness6 = 0;
+  currentPlayer.realBusiness6 = 0;
+  fillIn(currentPlayer);
 });
 let playerN = 0;
 const playerTrack = [
@@ -1734,34 +1785,108 @@ const playerTrack = [
   player8,
 ];
 
+let type = '';
+let cost = 5000;
+let maxCashflow = 0;
+let houseTypes = [
+  ' House',
+  ' Apartment',
+  ' Duplex',
+  ' Mansion',
+  ' Water Bottle Manufacturer',
+  ' Mouse Designer',
+  ' Computer Seller',
+  ' Game Developers',
+];
+const pickHouseBusiness = function () {
+  dice = Math.trunc(Math.random() * 7) + 1;
+  for (let i = 0; i <= houseTypes.length; i++) {
+    if (dice == i) {
+      type = houseTypes[i];
+      console.log('hello');
+    }
+  }
+
+  posNeg();
+  if (positive) {
+    cost += Math.trunc(Math.random() * 10000) + 1000;
+  } else {
+    cost -= Math.trunc(Math.random() * 1000) + 300;
+  }
+  maxCashflow = Math.trunc(cost * 0.12);
+};
+let currentAsset;
 const next = function () {
   if (playerN < players - 1) {
     playerN += 1;
+
     currentPlayer = playerTrack[playerN];
 
     if (firstTurn) {
       pickJob(playerTrack[playerN]);
-      //currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
       fillIn(playerTrack[playerN]);
     } else {
+      dice = Math.trunc(Math.random() * 4) + 1;
+
+      if (dice == 3) {
+        pickHouseBusiness();
+        let house = new building(cost, type, maxCashflow, 0);
+        currentAsset = house;
+        console.log(house.cost);
+        currentSell =
+          house.type +
+          ': Max Cashflow: ' +
+          house.maxCashflow +
+          ' Costs ' +
+          house.cost;
+        houseBusinessNo.classList.remove('hidden');
+        houseBusinessYes.classList.remove('hidden');
+      } else {
+        currentSell = ' There are no houses to buy and no businesses to claim';
+        houseBusinessNo.classList.add('hidden');
+        houseBusinessYes.classList.add('hidden');
+      }
       myt4uTick();
       gro4uTick();
       gr8Tick();
       ok4uTick();
       lymp4uTick();
+      market();
       currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
       fillIn(playerTrack[playerN]);
     }
   } else {
+    dice = Math.trunc(Math.random() * 4) + 1;
+
+    if (dice == 3) {
+      pickHouseBusiness();
+      let house = new building(cost, type, maxCashflow, 0);
+      currentAsset = house;
+      console.log(house.cost);
+      currentSell =
+        house.type +
+        ': Max Cashflow: ' +
+        house.maxCashflow +
+        ' Costs ' +
+        house.cost;
+      houseBusinessNo.classList.remove('hidden');
+      houseBusinessYes.classList.remove('hidden');
+    } else {
+      currentSell = ' There are no houses to buy and no businesses to claim';
+      houseBusinessNo.classList.add('hidden');
+      houseBusinessYes.classList.add('hidden');
+    }
     myt4uTick();
     gro4uTick();
     gr8Tick();
     ok4uTick();
     lymp4uTick();
+    market();
     turn += 1;
     turnEl.textContent = turn;
     playerN = 0;
     currentPlayer = player1;
+    market();
     currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
     fillIn(player1);
     firstTurn = false;
@@ -1776,158 +1901,48 @@ nextBtn.addEventListener('click', function () {
     clear();
     clear();
     clear();
+
     if (firstTurn) {
       dice = Math.trunc(Math.random() * 12) + 1;
     }
     next();
+    doodad34.doodadCost = currentPlayer.proffession.cashFlow * 3;
+    doodad33.doodadCost = currentPlayer.proffession.cashFlow * 1;
+    doodad32.doodadCost = currentPlayer.proffession.cashFlow * 6;
+    doodad29.doodadCost = currentPlayer.proffession.cashFlow * 2;
+    doodad26.doodadCost = currentPlayer.proffession.cashFlow * 2;
+    doodad25.doodadCost = currentPlayer.proffession.cashFlow * 6;
+    doodad24.doodadCost = currentPlayer.proffession.cashFlow * 2;
+    doodad22.doodadCost = currentPlayer.proffession.cashFlow * 3;
+    doodad20.doodadCost = currentPlayer.proffession.cashFlow * 1;
+    doodad18.doodadCost =
+      currentPlayer.proffession.cashFlow * Math.trunc(Math.random() * 12) + 1;
+    doodad19.doodadCost = currentPlayer.proffession.cashFlow * 4;
+    doodad16.doodadCost = currentPlayer.proffession.cashFlow * 2;
+    if (currentPlayer.proffession == doctor) {
+      doodad2.doodad = 'You take your family to a nice steakhouse';
+      doodad2.doodadCost = 600;
+    } else if (currentPlayer.proffession == teacher || janitor) {
+      doodad2.doodad =
+        'You take your family to taco bell and let them get anything';
+      doodad2.doodadCost = 40;
+    } else {
+      doodad2.doodad = 'You take your family to a nice dinner';
+      doodad2.doodadCost = 200;
+    }
+    if (turn >= Math.trunc(Math.random() * 20) + 10) {
+      dice = Math.trunc(Math.random() * 35) + 1;
+      console.log(doodadArr[dice]);
+      modal.textContent =
+        doodadArr[dice].doodad + '  Costs: ' + doodadArr[dice].doodadCost;
+      currentPlayer.proffession.cash -= doodadArr[dice].doodadCost;
+      openModal();
+    }
   }
+  fillIn(currentPlayer);
 });
-let random;
-const posNeg = function () {
-  random = Math.trunc(Math.random() * 2) + 1;
-  if (random == 1) {
-    positive = false;
-    negative = true;
-  } else {
-    positive = true;
-    negative = false;
-  }
-};
+
 posNeg();
-/*
-const tick1 = function (stock) {
-  if (stock.cost <= 15) {
-    stock.cost += Math.random() * 5 + 1;
-    stock.cost = Math.trunc(stock.cost);
-  } else if (stock.cost > 15 && stock.cost <= 30) {
-    posNeg();
-    if (positive) {
-      stock.cost += Math.random() * 5 + 1;
-      stock.cost = Math.trunc(stock.cost);
-    } else {
-      stock.cost -= Math.random() * 2 + 1;
-      stock.cost = Math.trunc(stock.cost);
-    }
-  } else if (stock.cost > 30 && stock.cost <= 60) {
-    posNeg();
-    if (positive) {
-      stock.cost += Math.random() * 5 + 1;
-      stock.cost = Math.trunc(stock.cost);
-    } else {
-      stock.cost -= Math.random() * 1 + 3;
-      stock.cost = Math.trunc(stock.cost);
-    }
-  } else if (stock.cost > 60 && stock.cost <= 30000) {
-    posNeg();
-    if (positive) {
-      stock.cost += Math.random() * 5 + 1;
-      stock.cost = Math.trunc(stock.cost);
-    } else {
-      stock.cost -= Math.random() * 50 + 1;
-      stock.cost = Math.trunc(stock.cost);
-    }
-  }
-};
-
-const tick2 = function (stockCost) {
-  if (stockCost <= 7) {
-    stockCost += Math.random() * 5 + 1;
-    stockCost = Math.trunc(stockCost);
-    stock2.cost = stockCost;
-  } else if (stockCost > 7 && stockCost <= 15) {
-    posNeg();
-    if (positive) {
-      stockCost += Math.random() * 8 + 1;
-      stockCost = Math.trunc(stockCost);
-    } else {
-      stockCost -= Math.random() * 5 + 1;
-      stockCost = Math.trunc(stockCost);
-    }
-    stock2.cost = stockCost;
-  } else if (stockCost > 15 && stockCost <= 28) {
-    posNeg();
-    if (positive) {
-      stockCost += Math.random() * 6 + 3;
-      stockCost = Math.trunc(stockCost);
-    } else {
-      stockCost -= Math.random() * 5 + 1;
-      stockCost = Math.trunc(stockCost);
-    }
-    stock2.cost = stockCost;
-  } else if (stockCost > 28 && stockCost <= 45) {
-    posNeg();
-    if (positive) {
-      stockCost += Math.random() * 9 + 1;
-      stockCost = Math.trunc(stockCost);
-    } else {
-      stockCost -= Math.random() * 8 + 1;
-      stockCost = Math.trunc(stockCost);
-    }
-    stock2.cost = stockCost;
-  } else if (stockCost > 45 && stockCost <= 1000) {
-    posNeg();
-    if (positive) {
-      stockCost += Math.random() * 4 + 1;
-      stockCost = Math.trunc(stockCost);
-    } else {
-      posNeg();
-      if (positive) {
-        stockCost -= Math.random() * 3 + 1;
-        stockCost = Math.trunc(stockCost);
-      } else {
-        stockCost -= Math.random() * 10 + 1;
-        stockCost = Math.trunc(stockCost);
-      }
-    }
-    stock2.cost = stockCost;
-  }
-  gro4uCost = stock2.cost;
-};
-
-const tick3 = function (stockCost) {
-  if (stockCost <= 85) {
-    stockCost += Math.random() * 5 + 1;
-    stockCost = Math.trunc(stockCost);
-  } else if (stockCost > 85 && stockCost <= 110) {
-    posNeg();
-    if (positive) {
-      stockCost += Math.random() * 20 + 1;
-      stockCost = Math.trunc(stockCost);
-    } else {
-      stockCost -= Math.random() * 7 + 1;
-      stockCost = Math.trunc(stockCost);
-    }
-  } else if (stockCost > 110 && stockCost <= 150) {
-    posNeg();
-    if (positive) {
-      stockCost += Math.random() * 14 + 1;
-      stockCost = Math.trunc(stockCost);
-    } else {
-      stockCost -= Math.random() * 8 + 1;
-      stockCost = Math.trunc(stockCost);
-    }
-  } else if (stockCost > 150 && stockCost <= 199) {
-    console.log('hi');
-    posNeg();
-    if (positive) {
-      stockCost += Math.random() * 17 + 1;
-      stockCost = Math.trunc(stockCost);
-    } else {
-      stockCost -= Math.random() * 9 + 1;
-      stockCost = Math.trunc(stockCost);
-    }
-  } else if (stockCost > 199 && stockCost <= 900) {
-    posNeg();
-    if (positive) {
-      stockCost += Math.random() * 5 + 1;
-      stockCost = Math.trunc(stockCost);
-    } else {
-      stockCost -= Math.random() * 100 + 15;
-      stockCost = Math.trunc(stockCost);
-    }
-  }
-};
-*/
 
 let crazy = Math.random() * 10 + 1;
 
@@ -2266,56 +2281,6 @@ const lymp4uTick = function () {
 
 okLoan.classList.add('hidden');
 loanValue.classList.add('hidden');
-/*
-let myt4uCostBasis1 = [];
-let gro4uCostBasis1 = [];
-let ok4uCostBasis1 = [];
-let gr84uCostBasis1 = [];
-let lymp4uCostBasis1 = [];
-
-let myt4uCostBasis2 = [];
-let gro4uCostBasis2 = [];
-let ok4uCostBasis2 = [];
-let gr84uCostBasis2 = [];
-let lymp4uCostBasis2 = [];
-
-let myt4uCostBasis3 = [];
-let gro4uCostBasis3 = [];
-let ok4uCostBasis3 = [];
-let gr84uCostBasis3 = [];
-let lymp4uCostBasis3 = [];
-
-let myt4uCostBasis4 = [];
-let gro4uCostBasis4 = [];
-let ok4uCostBasis4 = [];
-let gr84uCostBasis4 = [];
-let lymp4uCostBasis4 = [];
-
-let myt4uCostBasis5 = [];
-let gro4uCostBasis5 = [];
-let ok4uCostBasis5 = [];
-let gr84uCostBasis5 = [];
-let lymp4uCostBasis5 = [];
-
-let myt4uCostBasis6 = [];
-let gro4uCostBasis6 = [];
-let ok4uCostBasis6 = [];
-let gr84uCostBasis6 = [];
-let lymp4uCostBasis6 = [];
-
-let myt4uCostBasis7 = [];
-let gro4uCostBasis7 = [];
-let ok4uCostBasis7 = [];
-let gr84uCostBasis7 = [];
-let lymp4uCostBasis7 = [];
-
-let myt4uCostBasis8 = [];
-let gro4uCostBasis8 = [];
-let ok4uCostBasis8 = [];
-let gr84uCostBasis8 = [];
-let lymp4uCostBasis8 = [];
-
-*/
 
 let n = 0;
 const stockAverage = function (stockAverage, stock, stockCost) {
@@ -2355,23 +2320,79 @@ const stockArr = function (stock) {
     return stock;
   }
 };
-/*
-const stockCostArr = function (stock, stockCost) {
-  if (selling) {
-    n = Number(bellEl.value);
-    for (let i = 0; i < stock.length; i++) {
-      console.log('for');
-      if (n >= stock[i]) {
-        n -= stock[i];
-        stock.shift();
-        stockCost.shift();
-      } else {
-        break;
-      }
-    }
-    return stockCost;
-  }
+
+const building = function (cost, type, maxCashflow, cashflow) {
+  this.cost = cost;
+  this.type = type;
+  this.maxCashflow = maxCashflow;
+  this.cashflow = cashflow;
 };
 
-//work please please work
-*/
+let currentAssets = [];
+let assetText = [];
+
+const market = function () {
+  currentAssets.length = 0;
+  assetText.length = 0;
+  currentAssets.push(
+    currentPlayer.realBusiness1,
+    currentPlayer.realBusiness2,
+    currentPlayer.realBusiness3,
+    currentPlayer.realBusiness4,
+    currentPlayer.realBusiness5,
+    currentPlayer.realBusiness6
+  );
+  assetText.push(
+    currentPlayer.proffession.realBusiness1,
+    currentPlayer.proffession.realBusiness2,
+    currentPlayer.proffession.realBusiness3,
+    currentPlayer.proffession.realBusiness4,
+    currentPlayer.proffession.realBusiness5,
+    currentPlayer.proffession.realBusiness6
+  );
+  for (let i = 0; i < 6; i++) {
+    if (currentAssets[i] !== 0) {
+      if (currentAssets[i].cashflow <= currentAssets[i].maxCashflow) {
+        currentAssets[i].cashflow += Math.round(
+          currentAssets[i].maxCashflow * 0.005
+        );
+        currentPlayer.passive += Math.round(
+          currentAssets[i].maxCashflow * 0.005
+        );
+        currentPlayer.proffession.cashFlow += Math.round(
+          currentAssets[i].maxCashflow * 0.005
+        );
+      }
+      posNeg();
+      if (positive) {
+        currentAssets[i].cost += Math.round(turn * 30);
+        currentAssets[i].maxCashflow = Math.round(currentAssets[i].cost * 0.12);
+      } else {
+        if (currentAssets[i].cost > 6000) {
+          currentAssets[i].cost -= Math.round(turn * 5);
+          currentAssets[i].maxCashflow = Math.round(
+            currentAssets[i].cost * 0.12
+          );
+        }
+      }
+      assetText[i] =
+        currentAssets[i].type +
+        ' Sell for: ' +
+        currentAssets[i].cost +
+        ' Max Cashflow: ' +
+        currentAssets[i].maxCashflow;
+    }
+  }
+  currentPlayer.proffession.realBusiness1 = assetText[0];
+  currentPlayer.proffession.realBusiness2 = assetText[1];
+  currentPlayer.proffession.realBusiness3 = assetText[2];
+  currentPlayer.proffession.realBusiness4 = assetText[3];
+  currentPlayer.proffession.realBusiness5 = assetText[4];
+  currentPlayer.proffession.realBusiness6 = assetText[5];
+  currentPlayer.realBusiness1 = currentAssets[0];
+  currentPlayer.realBusiness2 = currentAssets[1];
+  currentPlayer.realBusiness3 = currentAssets[2];
+  currentPlayer.realBusiness4 = currentAssets[3];
+  currentPlayer.realBusiness5 = currentAssets[4];
+  currentPlayer.realBusiness6 = currentAssets[5];
+};

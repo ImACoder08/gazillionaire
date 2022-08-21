@@ -1,24 +1,26 @@
 .box {
   font-size: 20px;
-}
-
-.board {
-  padding-right: 992px;
-  margin-left: 900px;
-  padding-top: 800px;
-  padding-bottom: 290px;
-  border-color: black;
-  background-color: #000000;
-  border-radius: 9px;
-  position: relative;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
+    'Lucida Sans', Arial, sans-serif;
 }
 
 .next {
+  background: linear-gradient(to top left, #9955e7, #e0cdf8);
   margin-top: 50px;
   margin-left: 30px;
-  font-size: 50px;
+  font-size: 60px;
   padding-bottom: 20px;
   padding-right: 20px;
+  font-family: cursive;
+  border-color: rgb(255, 255, 255);
+}
+
+.housing {
+  padding-left: 800px;
+}
+
+.button {
+  font-size: 40;
 }
 
 .buy {
@@ -94,4 +96,9 @@
   padding-bottom: 20px;
   padding-right: 20px;
   font-size: 40px;
+}
+
+.loan {
+  background: linear-gradient(to top left, #d8e755, #f5f8cd);
+  border-color: rgb(255, 255, 255);
 }
