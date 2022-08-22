@@ -105,6 +105,18 @@ houseSell3.classList.add('hidden');
 houseSell4.classList.add('hidden');
 houseSell5.classList.add('hidden');
 houseSell6.classList.add('hidden');
+
+let jewelryEl = document.querySelector('.jewelry');
+let boatEl = document.querySelector('.boat');
+let tvEl = document.querySelector('.tv');
+let fishingRodEl = document.querySelector('.rod');
+let merchEl = document.querySelector('.merch');
+let bowlingBallEl = document.querySelector('.bowlingBall');
+let watchEl = document.querySelector('.watch');
+let clothingEl = document.querySelector('.clothing');
+let furnitureEl = document.querySelector('.furniture');
+let nintendoSwitchEl = document.querySelector('.switch');
+let mowerEl = document.querySelector('.mower');
 //Booleans
 let driverBought = false;
 let teacherBought = false;
@@ -185,8 +197,8 @@ const stock1 = {
   third: Math.trunc(highRange / 2.5) + lowRange - 5,
   fourth: Math.trunc(highRange / 1.5) + lowRange - 5,
 };
-lowRange = Math.trunc(Math.random() * 10 + 5);
-highRange = Math.trunc(Math.random() * 20 + 30);
+lowRange = Math.trunc(Math.random() * 30 + 5);
+highRange = Math.trunc(Math.random() * 50 + 30);
 
 const stock2 = {
   lowRange: lowRange,
@@ -677,6 +689,16 @@ const Player = function () {
     (this.realBusiness5 = 0),
     (this.realBusiness6 = 0),
     (this.passive = 0),
+    (this.watch = 0),
+    (this.nintendoSwitch = 0),
+    (this.fishingRod = 0),
+    (this.furniture = 0),
+    (this.lawnMower = 0),
+    (this.merch = 0),
+    (this.tv = 0),
+    (this.boat = 0),
+    (this.jewelry = 0),
+    (this.bowlingBall = 0),
     (d += 1);
 };
 const player1 = new Player();
@@ -990,16 +1012,26 @@ const fillIn = function (player) {
     lymp4u.stock.lowRange.toString() +
     ' - $' +
     lymp4u.stock.highRange.toString();
-  myt4uboughtEl.textContent = currentPlayer.myt4uAverage;
-  ok4uboughtEl.textContent = currentPlayer.ok4uAverage;
-  gro4uboughtEl.textContent = currentPlayer.gro4uAverage;
-  lymp4uboughtEl.textContent = currentPlayer.lymp4uAverage;
-  gr8boughtEl.textContent = currentPlayer.gr8Average;
-  loanEl.textContent = currentPlayer.currentLoan;
+  myt4uboughtEl.textContent = player.myt4uAverage;
+  ok4uboughtEl.textContent = player.ok4uAverage;
+  gro4uboughtEl.textContent = player.gro4uAverage;
+  lymp4uboughtEl.textContent = player.lymp4uAverage;
+  gr8boughtEl.textContent = player.gr8Average;
+  loanEl.textContent = player.currentLoan;
   housesBusinessEl.textContent = currentSell;
-  passiveEl.textContent = currentPlayer.passive;
-};
+  passiveEl.textContent = player.passive;
 
+  watchEl.textContent = player.watch;
+  nintendoSwitchEl.textContent = player.nintendoSwitch;
+  fishingRodEl.textContent = player.fishingRod;
+  furnitureEl.textContent = player.furniture;
+  mowerEl.textContent = player.lawnMower;
+  merchEl.textContent = player.merch;
+  tvEl.textContent = player.tv;
+  boatEl.textContent = player.boat;
+  jewelryEl.textContent = player.jewelry;
+  bowlingBallEl.textContent = player.bowlingBall;
+};
 //buy--
 
 const clear = function () {
@@ -1913,7 +1945,7 @@ nextBtn.addEventListener('click', function () {
     doodad26.doodadCost = currentPlayer.proffession.cashFlow * 2;
     doodad25.doodadCost = currentPlayer.proffession.cashFlow * 6;
     doodad24.doodadCost = currentPlayer.proffession.cashFlow * 2;
-    doodad22.doodadCost = currentPlayer.proffession.cashFlow * 3;
+    doodad22.doodadCost = currentPlayer.proffession.cashFlow * 1;
     doodad20.doodadCost = currentPlayer.proffession.cashFlow * 1;
     doodad18.doodadCost =
       currentPlayer.proffession.cashFlow * Math.trunc(Math.random() * 12) + 1;
@@ -1922,7 +1954,10 @@ nextBtn.addEventListener('click', function () {
     if (currentPlayer.proffession == doctor) {
       doodad2.doodad = 'You take your family to a nice steakhouse';
       doodad2.doodadCost = 600;
-    } else if (currentPlayer.proffession == teacher || janitor) {
+    } else if (
+      currentPlayer.proffession == teacher ||
+      currentPlayer.proffession == janitor
+    ) {
       doodad2.doodad =
         'You take your family to taco bell and let them get anything';
       doodad2.doodadCost = 40;
@@ -1932,14 +1967,42 @@ nextBtn.addEventListener('click', function () {
     }
     if (turn >= Math.trunc(Math.random() * 20) + 10) {
       dice = Math.trunc(Math.random() * 35) + 1;
-      console.log(doodadArr[dice]);
       modal.textContent =
         doodadArr[dice].doodad + '  Costs: ' + doodadArr[dice].doodadCost;
       currentPlayer.proffession.cash -= doodadArr[dice].doodadCost;
       openModal();
+      if (dice + 1 == 9) {
+        currentPlayer.tv += 1;
+      } else if (dice + 1 == 5) {
+        currentPlayer.jewelry += 1;
+      } else if (dice + 1 == 7) {
+        currentPlayer.boat += 1;
+      } else if (dice + 1 == 14) {
+        currentPlayer.fishingRod += 1;
+      } else if (dice + 1 == 21) {
+        currentPlayer.merch += 1;
+      } else if (dice + 1 == 22) {
+        currentPlayer.bowlingBall += 1;
+      } else if (dice + 1 == 23) {
+        currentPlayer.lawnMower += 1;
+      } else if (dice + 1 == 23) {
+        currentPlayer.watch += 1;
+      } else if (dice + 1 == 30) {
+        currentPlayer.furniture += 1;
+      } else if (dice + 1 == 34) {
+        currentPlayer.nintendoSwitch += 1;
+      }
     }
   }
   fillIn(currentPlayer);
+  if (
+    currentPlayer.passive > currentPlayer.proffession.totalExpenses &&
+    currentPlayer.proffession.cash > 10000000
+  ) {
+    modal.textContent =
+      'You have won the Game of Life! As you are rich and get to enjoy life to the fullest, the other players rot away in a cubicle that never sees the sun. Congratulations! refresh to play again';
+    openModal();
+  }
 });
 
 posNeg();
@@ -1967,6 +2030,12 @@ const myt4uTick = function () {
     if (positive) {
       myt4uCost += Math.random() * 7 + 4;
       myt4uCost = Math.trunc(myt4uCost);
+      crazy = Math.trunc(Math.random() * 10 + 1);
+      if (crazy == 5) {
+        myt4uCost = myt4u.stock.highRange;
+      } else if (crazy == 6) {
+        myt4uCost = myt4u.stock.lowRange;
+      }
     } else {
       myt4uCost -= Math.random() * 2 + 2;
       myt4uCost = Math.trunc(myt4uCost);
@@ -2035,6 +2104,12 @@ const gro4uTick = function () {
     if (positive) {
       gro4uCost += Math.random() * 7 + 4;
       gro4uCost = Math.trunc(gro4uCost);
+      crazy = Math.trunc(Math.random() * 10 + 1);
+      if (crazy == 5) {
+        gro4uCost = gro4u.stock.highRange;
+      } else if (crazy == 6) {
+        gro4uCost = gro4u.stock.lowRange;
+      }
     } else {
       gro4uCost -= Math.random() * 3 + 2;
       gro4uCost = Math.trunc(gro4uCost);
@@ -2099,6 +2174,12 @@ const gr8Tick = function () {
     if (positive) {
       gr8Cost += Math.random() * 7 + 4;
       gr8Cost = Math.trunc(gr8Cost);
+      crazy = Math.trunc(Math.random() * 10 + 1);
+      if (crazy == 5) {
+        gr8Cost = gr8.stock.highRange;
+      } else if (crazy == 6) {
+        gr8Cost = gr8.stock.lowRange;
+      }
     } else {
       gr8Cost -= Math.random() * 3 + 2;
       gr8Cost = Math.trunc(gr8Cost);
@@ -2170,6 +2251,12 @@ const ok4uTick = function () {
     if (positive) {
       ok4uCost += Math.random() * 10 + 4;
       ok4uCost = Math.trunc(ok4uCost);
+      crazy = Math.trunc(Math.random() * 10 + 1);
+      if (crazy == 5) {
+        ok4uCost = ok4u.stock.highRange;
+      } else if (crazy == 6) {
+        ok4uCost = ok4u.stock.lowRange;
+      }
     } else {
       ok4uCost -= Math.random() * 4 + 2;
       ok4uCost = Math.trunc(ok4uCost);
@@ -2229,6 +2316,12 @@ const lymp4uTick = function () {
     if (positive) {
       lymp4uCost += Math.random() * 7 + 4;
       lymp4uCost = Math.trunc(lymp4uCost);
+      crazy = Math.trunc(Math.random() * 10 + 1);
+      if (crazy == 5) {
+        lymp4uCost = lymp4u.stock.highRange;
+      } else if (crazy == 6) {
+        lymp4uCost = lymp4u.stock.lowRange;
+      }
     } else {
       lymp4uCost -= Math.random() * 3 + 2;
       lymp4uCost = Math.trunc(lymp4uCost);
@@ -2241,13 +2334,15 @@ const lymp4uTick = function () {
     if (positive) {
       lymp4uCost += Math.random() * 10 + 4;
       lymp4uCost = Math.trunc(lymp4uCost);
+      crazy = Math.trunc(Math.random() * 10 + 1);
+      if (crazy == 5) {
+        lymp4uCost = lymp4u.stock.highRange;
+      } else if (crazy == 6) {
+        lymp4uCost = lymp4u.stock.lowRange;
+      }
     } else {
       lymp4uCost -= Math.random() * 4 + 3;
       lymp4uCost = Math.trunc(lymp4uCost);
-    }
-    crazy = Math.trunc(Math.random() * 10 + 1);
-    if (crazy == 5) {
-      lymp4uCost = lymp4u.stock.lowRange;
     }
   } else if (
     lymp4uCost > lymp4u.stock.fourth &&
@@ -2272,7 +2367,7 @@ const lymp4uTick = function () {
         lymp4uCost -= Math.random() * 10 + 5;
         lymp4uCost = Math.trunc(lymp4uCost);
       } else {
-        lymp4uCost -= Math.random() * lymp4u.stock.highRange - 20 + 20;
+        lymp4uCost -= Math.random() * lymp4u.stock.highRange - 30 + 30;
         lymp4uCost = Math.trunc(lymp4uCost);
       }
     }
