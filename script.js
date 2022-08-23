@@ -699,6 +699,7 @@ const Player = function () {
     (this.boat = 0),
     (this.jewelry = 0),
     (this.bowlingBall = 0),
+    (this.clothing = 0),
     (d += 1);
 };
 const player1 = new Player();
@@ -1031,6 +1032,7 @@ const fillIn = function (player) {
   boatEl.textContent = player.boat;
   jewelryEl.textContent = player.jewelry;
   bowlingBallEl.textContent = player.bowlingBall;
+  clothingEl.textContent = player.clothing;
 };
 //buy--
 
@@ -1858,7 +1860,7 @@ const next = function () {
       pickJob(playerTrack[playerN]);
       fillIn(playerTrack[playerN]);
     } else {
-      dice = Math.trunc(Math.random() * 4) + 1;
+      dice = Math.trunc(Math.random() * 3) + 1;
 
       if (dice == 3) {
         pickHouseBusiness();
@@ -1888,7 +1890,7 @@ const next = function () {
       fillIn(playerTrack[playerN]);
     }
   } else {
-    dice = Math.trunc(Math.random() * 4) + 1;
+    dice = Math.trunc(Math.random() * 3) + 1;
 
     if (dice == 3) {
       pickHouseBusiness();
@@ -2002,6 +2004,41 @@ nextBtn.addEventListener('click', function () {
     modal.textContent =
       'You have won the Game of Life! As you are rich and get to enjoy life to the fullest, the other players rot away in a cubicle that never sees the sun. Congratulations! refresh to play again';
     openModal();
+  }
+  if (currentPlayer.currentLoan > 0) {
+    paybackLoan.classList.remove('hidden');
+  } else {
+    paybackLoan.classList.add('hidden');
+  }
+  if (currentPlayer.realBusiness2 == 0) {
+    houseSell2.classList.add('hidden');
+  } else {
+    houseSell2.classList.remove('hidden');
+  }
+  if (currentPlayer.realBusiness3 == 0) {
+    houseSell3.classList.add('hidden');
+  } else {
+    houseSell3.classList.remove('hidden');
+  }
+  if (currentPlayer.realBusiness4 == 0) {
+    houseSell4.classList.add('hidden');
+  } else {
+    houseSell4.classList.remove('hidden');
+  }
+  if (currentPlayer.realBusiness5 == 0) {
+    houseSell5.classList.add('hidden');
+  } else {
+    houseSell5.classList.remove('hidden');
+  }
+  if (currentPlayer.realBusiness6 == 0) {
+    houseSell6.classList.add('hidden');
+  } else {
+    houseSell6.classList.remove('hidden');
+  }
+  if (currentPlayer.realBusiness1 == 0) {
+    houseSell1.classList.add('hidden');
+  } else {
+    houseSell1.classList.remove('hidden');
   }
 });
 
