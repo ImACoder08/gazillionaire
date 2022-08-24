@@ -2486,13 +2486,13 @@ const market = function () {
     if (currentAssets[i] !== 0) {
       if (currentAssets[i].cashflow <= currentAssets[i].maxCashflow) {
         currentAssets[i].cashflow += Math.round(
-          currentAssets[i].maxCashflow * 0.005
+          currentAssets[i].maxCashflow * 0.007
         );
         currentPlayer.passive += Math.round(
-          currentAssets[i].maxCashflow * 0.005
+          currentAssets[i].maxCashflow * 0.007
         );
         currentPlayer.proffession.cashFlow += Math.round(
-          currentAssets[i].maxCashflow * 0.005
+          currentAssets[i].maxCashflow * 0.007
         );
       }
       posNeg();

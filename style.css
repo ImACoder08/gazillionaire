@@ -1,5 +1,5 @@
 .box {
-  font-size: 20px;
+  font-size: 25px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
@@ -101,4 +101,20 @@
 .loan {
   background: linear-gradient(to top left, #d8e755, #f5f8cd);
   border-color: rgb(255, 255, 255);
+}
+
+.myt4u--cost {
+  margin-left: 100px;
+}
+.gro4u--cost {
+  margin-left: 100px;
+}
+.gr8--cost {
+  margin-left: 100px;
+}
+.lymp4u--cost {
+  margin-left: 100px;
+}
+.ok4u--cost {
+  margin-left: 100px;
 }
