@@ -6,6 +6,7 @@ const playerCount = function () {
     playerCount();
   }
 };
+
 playerCount();
 const posNeg = function () {
   random = Math.trunc(Math.random() * 2) + 1;
@@ -17,6 +18,25 @@ const posNeg = function () {
     negative = false;
   }
 };
+
+let mode;
+const setMode = function () {
+  mode = String(prompt('What Gamemode? (easy, normal, hard)'));
+  if (mode !== 'easy' && mode !== 'normal' && mode !== 'hard') {
+    setMode();
+  }
+};
+setMode();
+if (mode == 'easy') {
+  mode = 15;
+}
+if (mode == 'normal') {
+  mode = 10;
+}
+if (mode == 'hard') {
+  mode = 3;
+}
+
 let random;
 //comment
 //Variables
@@ -26,7 +46,7 @@ let playerNEl = document.querySelector('.playerN');
 let proffessionEl = document.querySelector('.proffession');
 let salaryEl = document.querySelector('.salary');
 let interestEl = document.querySelector('.interest');
-let dividendsEl = document.querySelector('.dividends');
+
 let realBusinessEl1 = document.querySelector('.realBusiness1');
 let realBusinessEl2 = document.querySelector('.realBusiness2');
 let realBusinessEl3 = document.querySelector('.realBusiness3');
@@ -700,6 +720,7 @@ const Player = function () {
     (this.jewelry = 0),
     (this.bowlingBall = 0),
     (this.clothing = 0),
+    (this.name = 0),
     (d += 1);
 };
 const player1 = new Player();
@@ -963,11 +984,11 @@ const pickJob = function (player) {
 };
 
 const fillIn = function (player) {
-  playerNEl.textContent = player.number;
+  playerNEl.textContent = player.name;
   proffessionEl.textContent = player.proffession.proffession;
   salaryEl.textContent = player.proffession.salary;
-  interestEl.textContent = player.proffession.interest;
-  dividendsEl.textContent = player.proffession.dividends;
+  interestEl.textContent = '20%';
+
   realBusinessEl1.textContent = player.proffession.realBusiness1;
   realBusinessEl2.textContent = player.proffession.realBusiness2;
   realBusinessEl3.textContent = player.proffession.realBusiness3;
@@ -983,11 +1004,11 @@ const fillIn = function (player) {
   lymp4uEl.textContent = player.proffession.lymp4u;
   passiveEl.textContent = player.proffession.passive;
   cashEl.textContent = player.proffession.cash;
-  myt4uCostEl.textContent = myt4uCost;
-  gro4uCostEl.textContent = gro4uCost;
-  gr8CostEl.textContent = gr8Cost;
-  ok4uCostEl.textContent = ok4uCost;
-  lymp4uCostEl.textContent = lymp4uCost;
+  myt4uCostEl.textContent = "'" + myt4uCost;
+  gro4uCostEl.textContent = "'" + gro4uCost;
+  gr8CostEl.textContent = "'" + gr8Cost;
+  ok4uCostEl.textContent = "'" + ok4uCost;
+  lymp4uCostEl.textContent = "'" + lymp4uCost;
   myt4uRangeEl.textContent =
     '$' +
     myt4u.stock.lowRange.toString() +
@@ -1041,7 +1062,6 @@ const clear = function () {
   proffessionEl.textContent = ' ';
   salaryEl.textContent = ' ';
   interestEl.textContent = ' ';
-  dividendsEl.textContent = ' ';
   realBusinessEl1.textContent = ' ';
   realBusinessEl2.textContent = ' ';
   realBusinessEl3.textContent = ' ';
@@ -1967,7 +1987,7 @@ nextBtn.addEventListener('click', function () {
       doodad2.doodad = 'You take your family to a nice dinner';
       doodad2.doodadCost = 200;
     }
-    if (turn >= Math.trunc(Math.random() * 20) + 10) {
+    if (turn >= Math.trunc(Math.random() * 20) + mode) {
       dice = Math.trunc(Math.random() * 35) + 1;
       modal.textContent =
         doodadArr[dice].doodad + '  Costs: ' + doodadArr[dice].doodadCost;
@@ -2528,3 +2548,23 @@ const market = function () {
   currentPlayer.realBusiness5 = currentAssets[4];
   currentPlayer.realBusiness6 = currentAssets[5];
 };
+
+let currentName = '';
+playerN = 0;
+const names = function () {
+  if (playerN < players) {
+    currentPlayer = playerTrack[playerN];
+    currentPlayer.name = String(
+      prompt(`What is the name of player ${currentPlayer.number}`)
+    );
+    playerN += 1;
+    fillIn(currentPlayer);
+    names();
+  }
+};
+
+names();
+
+currentPlayer = player1;
+fillIn(currentPlayer);
+playerN = 0;

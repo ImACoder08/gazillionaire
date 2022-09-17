@@ -1,18 +1,24 @@
-.box {
-  font-size: 25px;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
-    'Lucida Sans', Arial, sans-serif;
+@font-face {
+  font-family: 'lemon';
+  src: url(fonts/animeace2_bld.otf);
 }
 
+.box {
+  font-size: 21px;
+  font-family: 'lemon', sans-serif;
+}
+body {
+  background: linear-gradient(to top left, #a659ff, #c99ffc);
+}
 .next {
-  background: linear-gradient(to top left, #9955e7, #e0cdf8);
+  background: rgb(255, 50, 50);
   margin-top: 50px;
   margin-left: 30px;
   font-size: 55px;
   padding-bottom: 20px;
   padding-right: 20px;
   font-family: cursive;
-  border-color: rgb(255, 255, 255);
+  border-radius: 20px;
 }
 
 .housing {
@@ -25,6 +31,7 @@
 
 .buy {
   margin-left: 100px;
+  font-family: 'lemon', sans-serif;
 }
 
 .hidden {
@@ -84,7 +91,7 @@
 
 .loan {
   margin-top: 50px;
-
+  border: none;
   padding-bottom: 20px;
   padding-right: 20px;
   font-size: 35px;
@@ -99,22 +106,39 @@
 }
 
 .loan {
-  background: linear-gradient(to top left, #d8e755, #f5f8cd);
-  border-color: rgb(255, 255, 255);
+  background: rgb(92, 252, 92);
+  border-radius: 20px;
 }
 
 .myt4u--cost {
-  margin-left: 100px;
+  margin-left: 45px;
 }
 .gro4u--cost {
-  margin-left: 100px;
+  margin-left: 44px;
 }
 .gr8--cost {
-  margin-left: 100px;
+  margin-left: 41px;
 }
 .lymp4u--cost {
-  margin-left: 100px;
+  margin-left: 42px;
 }
 .ok4u--cost {
-  margin-left: 100px;
+  margin-left: 40px;
+}
+
+.buyBtn {
+  background: gold;
+  border: none;
+  font-family: 'lemon', sans-serif;
+}
+
+.sellbtn {
+  background: rgb(255, 50, 50);
+  border: none;
+  font-family: 'lemon', sans-serif;
+}
+
+.yessir {
+  background: rgb(92, 252, 92);
+  border: none;
 }
