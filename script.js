@@ -1004,11 +1004,11 @@ const fillIn = function (player) {
   lymp4uEl.textContent = player.proffession.lymp4u;
   passiveEl.textContent = player.proffession.passive;
   cashEl.textContent = player.proffession.cash;
-  myt4uCostEl.textContent = "'" + myt4uCost;
-  gro4uCostEl.textContent = "'" + gro4uCost;
-  gr8CostEl.textContent = "'" + gr8Cost;
-  ok4uCostEl.textContent = "'" + ok4uCost;
-  lymp4uCostEl.textContent = "'" + lymp4uCost;
+  myt4uCostEl.textContent = "'" + myt4uCost + "'";
+  gro4uCostEl.textContent = "'" + gro4uCost + "'";
+  gr8CostEl.textContent = "'" + gr8Cost + "'";
+  ok4uCostEl.textContent = "'" + ok4uCost + "'";
+  lymp4uCostEl.textContent = "'" + lymp4uCost + "'";
   myt4uRangeEl.textContent =
     '$' +
     myt4u.stock.lowRange.toString() +
