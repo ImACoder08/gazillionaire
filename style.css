@@ -111,143 +111,143 @@ body {
 }
 
 .myt4u--cost {
-  position: fixed;
+  position: absolute;
   left: 640px;
   bottom: 310px;
 }
 .gro4u--cost {
-  position: fixed;
+  position: absolute;
   left: 640px;
   bottom: 280px;
 }
 .gr8--cost {
-  position: fixed;
+  position: absolute;
   left: 640px;
   bottom: 250px;
 }
 .lymp4u--cost {
-  position: fixed;
+  position: absolute;
   left: 640px;
   bottom: 220px;
 }
 .ok4u--cost {
-  position: fixed;
+  position: absolute;
   left: 640px;
   bottom: 190px;
 }
 
 .myt4uRange {
-  position: fixed;
+  position: absolute;
   left: 360px;
   bottom: 310px;
 }
 .gro4uRange {
-  position: fixed;
+  position: absolute;
   left: 360px;
   bottom: 280px;
 }
 .gr8Range {
-  position: fixed;
+  position: absolute;
   left: 360px;
   bottom: 250px;
 }
 .ok4uRange {
-  position: fixed;
+  position: absolute;
   left: 360px;
   bottom: 220px;
 }
 .lymp4uRange {
-  position: fixed;
+  position: absolute;
   left: 360px;
   bottom: 190px;
 }
 .myt4uBuyPrice {
-  position: fixed;
+  position: absolute;
   left: 925px;
   bottom: 310px;
 }
 .gro4uBuyPrice {
-  position: fixed;
+  position: absolute;
   left: 925px;
   bottom: 280px;
 }
 .gr8BuyPrice {
-  position: fixed;
+  position: absolute;
   left: 925px;
   bottom: 250px;
 }
 .ok4uBuyPrice {
-  position: fixed;
+  position: absolute;
   left: 925px;
   bottom: 220px;
 }
 .lymp4uBuyPrice {
-  position: fixed;
+  position: absolute;
   left: 925px;
   bottom: 190px;
 }
 .buy--myt4u {
-  position: fixed;
+  position: absolute;
   left: 200px;
   bottom: 310px;
 }
 .sell--myt4u {
-  position: fixed;
+  position: absolute;
   left: 255px;
   bottom: 310px;
 }
 .buy--gro4u {
-  position: fixed;
+  position: absolute;
   left: 200px;
   bottom: 280px;
 }
 .sell--gro4u {
-  position: fixed;
+  position: absolute;
   left: 255px;
   bottom: 280px;
 }
 .buy--gr8 {
-  position: fixed;
+  position: absolute;
   left: 200px;
   bottom: 250px;
 }
 .sell--gr8 {
-  position: fixed;
+  position: absolute;
   left: 255px;
   bottom: 250px;
 }
 .buy--ok4u {
-  position: fixed;
+  position: absolute;
   left: 200px;
   bottom: 220px;
 }
 .sell--ok4u {
-  position: fixed;
+  position: absolute;
   left: 255px;
   bottom: 220px;
 }
 .buy--lymp4u {
-  position: fixed;
+  position: absolute;
   left: 200px;
   bottom: 190px;
 }
 .sell--lymp4u {
-  position: fixed;
+  position: absolute;
   left: 255px;
   bottom: 190px;
 }
 
 .yes {
-  position: fixed;
-  left: 1150px;
+  position: absolute;
+  left: 1180px;
   bottom: 580px;
   background: rgb(92, 252, 92);
   border: none;
   font-family: 'lemon', sans-serif;
 }
 .no {
-  position: fixed;
-  left: 1210px;
+  position: absolute;
+  left: 1235px;
   bottom: 580px;
 }
 .buyBtn {
