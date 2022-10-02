@@ -83,6 +83,7 @@ let btn500 = document.querySelector('.five--hundred');
 let btn1000 = document.querySelector('.one--thousand');
 let btn5000 = document.querySelector('.five--thousand');
 let maxBtn = document.querySelector('.max');
+let posSell = document.querySelector('.posSell');
 let bellEl = document.querySelector('.bell');
 let turnEl = document.querySelector('.turn');
 let cashEl = document.querySelector('.cash');
@@ -171,7 +172,7 @@ let sellingOk4u = false;
 let sellingLymp4u = false;
 let positive = false;
 let negative = false;
-
+let gameOver = false;
 //Dice
 let dice = Math.trunc(Math.random() * 12) + 1;
 
@@ -182,7 +183,8 @@ btn500.classList.add('hidden');
 btn1000.classList.add('hidden');
 btn5000.classList.add('hidden');
 maxBtn.classList.add('hidden');
-
+posSell.classList.add('hidden');
+let showPosSell = false;
 //Number Declares
 let turn = 1;
 turnEl.textContent = turn;
@@ -1277,6 +1279,54 @@ btn1000.addEventListener('click', function () {
 btn5000.addEventListener('click', function () {
   bellEl.value = 5000;
 });
+let int = 0;
+posSell.addEventListener('click', function () {
+  int = 0;
+  if (sellingMyt4u) {
+    calculatePositive(
+      myt4uCost,
+      currentPlayer.proffession.myt4u,
+      currentPlayer.proffession.cash
+    );
+  }
+  if (sellingGr8) {
+    calculatePositive(
+      gr8Cost,
+      currentPlayer.proffession.gr8,
+      currentPlayer.proffession.cash
+    );
+  }
+  if (sellingGro4u) {
+    calculatePositive(
+      gro4uCost,
+      currentPlayer.proffession.gro4u,
+      currentPlayer.proffession.cash
+    );
+  }
+  if (sellingOk4u) {
+    calculatePositive(
+      ok4uCost,
+      currentPlayer.proffession.ok4u,
+      currentPlayer.proffession.cash
+    );
+  }
+  if (sellingLymp4u) {
+    calculatePositive(
+      lymp4uCost,
+      currentPlayer.proffession.lymp4u,
+      currentPlayer.proffession.cash
+    );
+  }
+});
+const calculatePositive = function (stockCost, playerStock, playerCash) {
+  if (stockCost * playerStock + playerCash >= 0) {
+    showPosSell = false;
+    bellEl.value = Math.ceil((playerCash * -1) / stockCost);
+  } else {
+    bellEl.value = playerStock;
+  }
+};
+
 maxBtn.addEventListener('click', function () {
   if (buyingMyt4u) {
     bellEl.value = Math.trunc(currentPlayer.proffession.cash / myt4uCost);
@@ -1309,6 +1359,7 @@ okButton.addEventListener('click', function () {
   btn1000.classList.add('hidden');
   btn5000.classList.add('hidden');
   maxBtn.classList.add('hidden');
+  posSell.classList.add('hidden');
 });
 
 const sellStock = function () {
@@ -1321,6 +1372,9 @@ const sellStock = function () {
     btn1000.classList.remove('hidden');
     btn5000.classList.remove('hidden');
     maxBtn.classList.remove('hidden');
+    if (showPosSell) {
+      posSell.classList.remove('hidden');
+    }
     bellEl.value = '';
   } else if (!selling) {
     bellEl.value = '';
@@ -1332,6 +1386,7 @@ const sellStock = function () {
     btn1000.classList.add('hidden');
     btn5000.classList.add('hidden');
     maxBtn.classList.add('hidden');
+    posSell.classList.add('hidden');
   }
 };
 
@@ -1356,6 +1411,7 @@ const buyStock = function () {
     btn1000.classList.add('hidden');
     btn5000.classList.add('hidden');
     maxBtn.classList.add('hidden');
+    posSell.classList.add('hidden');
   }
 };
 
@@ -2015,15 +2071,22 @@ nextBtn.addEventListener('click', function () {
         currentPlayer.nintendoSwitch += 1;
       }
     }
+    if (currentPlayer.proffession.cash < 0) {
+      showPosSell = true;
+    } else {
+      showPosSell = false;
+    }
   }
   fillIn(currentPlayer);
   if (
     currentPlayer.passive > currentPlayer.proffession.totalExpenses &&
-    currentPlayer.proffession.cash > 10000000
+    currentPlayer.proffession.cash > 10000000 &&
+    !gameOver
   ) {
     modal.textContent =
       'You have won the Game of Life! As you are rich and get to enjoy life to the fullest, the other players rot away in a cubicle that never sees the sun. Congratulations! refresh to play again';
     openModal();
+    gameOver = true;
   }
   if (currentPlayer.currentLoan > 0) {
     paybackLoan.classList.remove('hidden');
