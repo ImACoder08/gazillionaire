@@ -1907,9 +1907,26 @@ let houseTypes = [
   ' Mouse Designer',
   ' Computer Seller',
   ' Game Developers',
+  'Bananazon',
+  'Protein King',
+  'Pear',
+  'Water park',
+  'Baby Sitters',
+  'Robot Manufacturer',
+  'Chinese Factory',
+  'Game Company',
+  'Retailer',
+  'Mall',
+  'McBonalds',
+  'Beef-fil-a',
+  'Burrito Bell',
+  'Apple Tree farm',
+  'Ranch',
+  '8-Plex',
+  'Grocery Store',
 ];
 const pickHouseBusiness = function () {
-  dice = Math.trunc(Math.random() * 7) + 1;
+  dice = Math.trunc(Math.random() * 24) + 1;
   for (let i = 0; i <= houseTypes.length; i++) {
     if (dice == i) {
       type = houseTypes[i];
@@ -2569,13 +2586,13 @@ const market = function () {
     if (currentAssets[i] !== 0) {
       if (currentAssets[i].cashflow <= currentAssets[i].maxCashflow) {
         currentAssets[i].cashflow += Math.round(
-          currentAssets[i].maxCashflow * 0.007
+          currentAssets[i].maxCashflow * 0.006
         );
         currentPlayer.passive += Math.round(
-          currentAssets[i].maxCashflow * 0.007
+          currentAssets[i].maxCashflow * 0.006
         );
         currentPlayer.proffession.cashFlow += Math.round(
-          currentAssets[i].maxCashflow * 0.007
+          currentAssets[i].maxCashflow * 0.006
         );
       }
       posNeg();
