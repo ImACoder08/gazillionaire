@@ -37,6 +37,8 @@ if (mode == 'hard') {
   mode = 3;
 }
 
+let imageCount = 40;
+
 let random;
 //comment
 //Variables
@@ -1004,11 +1006,11 @@ const fillIn = function (player) {
   lymp4uEl.textContent = player.proffession.lymp4u;
   passiveEl.textContent = player.proffession.passive;
   cashEl.textContent = player.proffession.cash;
-  myt4uCostEl.textContent = "'" + myt4uCost + "'";
-  gro4uCostEl.textContent = "'" + gro4uCost + "'";
-  gr8CostEl.textContent = "'" + gr8Cost + "'";
-  ok4uCostEl.textContent = "'" + ok4uCost + "'";
-  lymp4uCostEl.textContent = "'" + lymp4uCost + "'";
+  myt4uCostEl.textContent = '$' + myt4uCost + '';
+  gro4uCostEl.textContent = '$' + gro4uCost + '';
+  gr8CostEl.textContent = '$' + gr8Cost + '';
+  ok4uCostEl.textContent = '$' + ok4uCost + '';
+  lymp4uCostEl.textContent = '$' + lymp4uCost + '';
   myt4uRangeEl.textContent =
     '$' +
     myt4u.stock.lowRange.toString() +
@@ -1034,11 +1036,11 @@ const fillIn = function (player) {
     lymp4u.stock.lowRange.toString() +
     ' - $' +
     lymp4u.stock.highRange.toString();
-  myt4uboughtEl.textContent = player.myt4uAverage;
-  ok4uboughtEl.textContent = player.ok4uAverage;
-  gro4uboughtEl.textContent = player.gro4uAverage;
-  lymp4uboughtEl.textContent = player.lymp4uAverage;
-  gr8boughtEl.textContent = player.gr8Average;
+  myt4uboughtEl.textContent = '$' + player.myt4uAverage;
+  ok4uboughtEl.textContent = '$' + player.ok4uAverage;
+  gro4uboughtEl.textContent = '$' + player.gro4uAverage;
+  lymp4uboughtEl.textContent = '$' + player.lymp4uAverage;
+  gr8boughtEl.textContent = '$' + player.gr8Average;
   loanEl.textContent = player.currentLoan;
   housesBusinessEl.textContent = currentSell;
   passiveEl.textContent = player.passive;
@@ -1890,8 +1892,10 @@ const next = function () {
         currentSell =
           house.type +
           ': Max Cashflow: ' +
+          '$' +
           house.maxCashflow +
           ' Costs ' +
+          '$' +
           house.cost;
         houseBusinessNo.classList.remove('hidden');
         houseBusinessYes.classList.remove('hidden');
@@ -1920,8 +1924,10 @@ const next = function () {
       currentSell =
         house.type +
         ': Max Cashflow: ' +
+        '$' +
         house.maxCashflow +
         ' Costs ' +
+        '$' +
         house.cost;
       houseBusinessNo.classList.remove('hidden');
       houseBusinessYes.classList.remove('hidden');
@@ -1944,6 +1950,9 @@ const next = function () {
     currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
     fillIn(player1);
     firstTurn = false;
+    if (Math.ceil(turn / 2) == turn / 2) {
+      changeImage(memes[Math.trunc(Math.random() * imageCount)]);
+    }
   }
 };
 let firstTurn = true;
@@ -2007,12 +2016,14 @@ nextBtn.addEventListener('click', function () {
         currentPlayer.bowlingBall += 1;
       } else if (dice + 1 == 23) {
         currentPlayer.lawnMower += 1;
-      } else if (dice + 1 == 23) {
+      } else if (dice + 1 == 24) {
         currentPlayer.watch += 1;
       } else if (dice + 1 == 30) {
         currentPlayer.furniture += 1;
       } else if (dice + 1 == 34) {
         currentPlayer.nintendoSwitch += 1;
+      } else if (dice + 1 == 20) {
+        currentPlayer.clothing += 1;
       }
     }
   }
@@ -2568,3 +2579,52 @@ names();
 currentPlayer = player1;
 fillIn(currentPlayer);
 playerN = 0;
+
+let memes = [
+  '2.webp',
+  '4.jpg',
+  '5.jpg',
+  '8.jpg',
+  '9.jpg',
+  '11.jpg',
+  '12.jpg',
+  '13.jpg',
+  '14.jpg',
+  '16.webp',
+  '17.jpg',
+  '18.jpg',
+  '20.jpg',
+  '21.jpg',
+  '22.jpg',
+  '23.jpg',
+  '25.jpg',
+  '26.jpg',
+  '27.jpg',
+  '28jpg',
+  '29.jpg',
+  '30.jpg',
+  '31.jpg',
+  '32.jpg',
+  '33.jpg',
+  '34.jpg',
+  '35.jpg',
+  '36.jpg',
+  '37.jpg',
+  '38.jpg',
+  '39.jpg',
+  '40.jpg',
+  '41.jpg',
+  '42.jpg',
+  '43.jpg',
+  '44.jpg',
+  '45.jpg',
+  '46.jpg',
+  '47.jpg',
+  '48.jpg',
+  '49.jpg',
+];
+let memeEl = document.querySelector('.meme');
+const changeImage = function (newImage) {
+  memeEl.src = newImage;
+};
+changeImage(memes[Math.trunc(Math.random() * imageCount)]);

@@ -4,7 +4,7 @@
 }
 
 .box {
-  font-size: 20.5px;
+  font-size: 21.9px;
   font-family: 'lemon', sans-serif;
 }
 body {
@@ -22,7 +22,8 @@ body {
 }
 
 .housing {
-  padding-left: 900px;
+  position: absolute;
+  left: 800px;
 }
 
 .button {
@@ -214,7 +215,7 @@ body {
 
 .yes {
   position: absolute;
-  left: 1180px;
+  left: 230px;
 
   background: rgb(92, 252, 92);
   border: none;
@@ -222,7 +223,7 @@ body {
 }
 .no {
   position: absolute;
-  left: 1235px;
+  left: 280px;
 }
 .buyBtn {
   background: gold;
@@ -236,7 +237,17 @@ body {
   font-family: 'lemon', sans-serif;
 }
 
-.yessir {
-  background: rgb(92, 252, 92);
-  border: none;
+.sign {
+  position: absolute;
+  right: -270px;
+  top: -60px;
+  scale: 0.5;
+}
+
+.meme {
+  position: absolute;
+  right: 0px;
+  top: 450px;
+  width: 500px;
+  height: 400px;
 }
