@@ -22,7 +22,12 @@ const posNeg = function () {
 let mode;
 const setMode = function () {
   mode = String(prompt('What Gamemode? (easy, normal, hard)'));
-  if (mode !== 'easy' && mode !== 'normal' && mode !== 'hard') {
+  if (
+    mode !== 'easy' &&
+    mode !== 'normal' &&
+    mode !== 'hard' &&
+    mode !== 'berserk'
+  ) {
     setMode();
   }
 };
@@ -35,6 +40,9 @@ if (mode == 'normal') {
 }
 if (mode == 'hard') {
   mode = 3;
+}
+if (mode == 'berserk') {
+  mode = 1;
 }
 
 let imageCount = 40;
@@ -1946,6 +1954,11 @@ const pickHouseBusiness = function () {
 };
 let currentAsset;
 const next = function () {
+  if (turn > 100 && mode == 1 && !gameOver) {
+    openModal();
+    modal.textContent = 'You have failed the berserk challenge';
+    currentPlayer.proffession.cash = 0;
+  }
   if (playerN < players - 1) {
     playerN += 1;
 
@@ -1983,9 +1996,14 @@ const next = function () {
       ok4uTick();
       lymp4uTick();
       market();
-      currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+      if (mode !== 1) {
+        currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+      } else if (currentPlayer.proffession.cashFlow < 0) {
+        currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+      }
       fillIn(playerTrack[playerN]);
     }
+    memeEl.classList.add('hidden');
   } else {
     dice = Math.trunc(Math.random() * 3) + 1;
 
@@ -2020,10 +2038,15 @@ const next = function () {
     playerN = 0;
     currentPlayer = player1;
     market();
-    currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+    if (mode !== 1) {
+      currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+    } else if (currentPlayer.proffession.cashFlow < 0) {
+      currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+    }
     fillIn(player1);
     firstTurn = false;
     if (Math.ceil(turn / 2) == turn / 2) {
+      memeEl.classList.remove('hidden');
       changeImage(memes[Math.trunc(Math.random() * imageCount)]);
     }
   }
