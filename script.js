@@ -44,7 +44,19 @@ if (mode == 'hard') {
 if (mode == 'berserk') {
   mode = 1;
 }
-
+let choose;
+const chooseMemes = function () {
+  choose = String(prompt('Memes?'));
+  if (choose !== 'yes' && choose !== 'no') {
+    chooseMemes();
+  }
+  if (choose == 'yes') {
+    choose = true;
+  } else {
+    choose = false;
+  }
+};
+chooseMemes();
 let imageCount = 40;
 
 let random;
@@ -1998,7 +2010,7 @@ const next = function () {
       market();
       if (mode !== 1) {
         currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
-      } else if (currentPlayer.proffession.cashFlow < 0) {
+      } else if (currentPlayer.proffession.cashFlow < 0 && mode == 1) {
         currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
       }
       fillIn(playerTrack[playerN]);
@@ -2040,12 +2052,12 @@ const next = function () {
     market();
     if (mode !== 1) {
       currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
-    } else if (currentPlayer.proffession.cashFlow < 0) {
+    } else if (currentPlayer.proffession.cashFlow < 0 && mode == 1) {
       currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
     }
     fillIn(player1);
     firstTurn = false;
-    if (Math.ceil(turn / 2) == turn / 2) {
+    if (Math.ceil(turn / 2) == turn / 2 && choose) {
       memeEl.classList.remove('hidden');
       changeImage(memes[Math.trunc(Math.random() * imageCount)]);
     }
