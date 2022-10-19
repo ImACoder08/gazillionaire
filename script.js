@@ -2087,15 +2087,33 @@ nextBtn.addEventListener('click', function () {
       dice = Math.trunc(Math.random() * 12) + 1;
     }
     next();
-    doodad34.doodadCost = currentPlayer.proffession.cashFlow * 3;
-    doodad33.doodadCost = currentPlayer.proffession.cashFlow * 1;
-    doodad32.doodadCost = currentPlayer.proffession.cashFlow * 6;
-    doodad29.doodadCost = currentPlayer.proffession.cashFlow * 2;
-    doodad26.doodadCost = currentPlayer.proffession.cashFlow * 2;
-    doodad25.doodadCost = currentPlayer.proffession.cashFlow * 6;
-    doodad24.doodadCost = currentPlayer.proffession.cashFlow * 2;
-    doodad22.doodadCost = currentPlayer.proffession.cashFlow * 1;
-    doodad20.doodadCost = currentPlayer.proffession.cashFlow * 1;
+    doodad34.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 3;
+    doodad33.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 1;
+    doodad32.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 6;
+    doodad29.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 2;
+    doodad26.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 2;
+    doodad25.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 6;
+    doodad24.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 2;
+    doodad22.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 1;
+    doodad20.doodadCost =
+      currentPlayer.proffession.salary -
+      currentPlayer.proffession.totalExpenses * 1;
     doodad18.doodadCost =
       currentPlayer.proffession.cashFlow * Math.trunc(Math.random() * 12) + 1;
     doodad19.doodadCost = currentPlayer.proffession.cashFlow * 4;
