@@ -1985,6 +1985,9 @@ const next = function () {
     if (firstTurn) {
       pickJob(playerTrack[playerN]);
       fillIn(playerTrack[playerN]);
+      if (mode == 1) {
+        currentPlayer.proffession.cashFlow = 0;
+      }
     } else {
       dice = Math.trunc(Math.random() * 3) + 1;
 
@@ -2014,11 +2017,9 @@ const next = function () {
       ok4uTick();
       lymp4uTick();
       market();
-      if (mode !== 1) {
-        currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
-      } else if (currentPlayer.proffession.cashFlow < 0 && mode == 1) {
-        currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
-      }
+
+      currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+
       fillIn(playerTrack[playerN]);
     }
     memeEl.classList.add('hidden');
@@ -2057,11 +2058,11 @@ const next = function () {
     playerN = 0;
     currentPlayer = player1;
     market();
-    if (mode !== 1) {
-      currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
-    } else if (currentPlayer.proffession.cashFlow < 0 && mode == 1) {
-      currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+    if (mode == 1 && (turn == 1 || turn == 2)) {
+      currentPlayer.proffession.cashFlow = 0;
     }
+    currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
+
     fillIn(player1);
     firstTurn = false;
     if (Math.ceil(turn / 2) == turn / 2 && choose) {
