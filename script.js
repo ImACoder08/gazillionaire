@@ -2088,36 +2088,51 @@ nextBtn.addEventListener('click', function () {
     }
     next();
     doodad34.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 3;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      3;
     doodad33.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 1;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      1;
     doodad32.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 6;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      6;
     doodad29.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 2;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      2;
     doodad26.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 2;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      2;
     doodad25.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 6;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      6;
     doodad24.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 2;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      2;
     doodad22.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 1;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      1;
     doodad20.doodadCost =
-      currentPlayer.proffession.salary -
-      currentPlayer.proffession.totalExpenses * 1;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      1;
     doodad18.doodadCost =
       currentPlayer.proffession.cashFlow * Math.trunc(Math.random() * 12) + 1;
-    doodad19.doodadCost = currentPlayer.proffession.cashFlow * 4;
-    doodad16.doodadCost = currentPlayer.proffession.cashFlow * 2;
+    doodad19.doodadCost =
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      4;
+    doodad16.doodadCost =
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+      2;
     if (currentPlayer.proffession == doctor) {
       doodad2.doodad = 'You take your family to a nice steakhouse';
       doodad2.doodadCost = 600;
