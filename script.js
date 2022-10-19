@@ -1377,14 +1377,16 @@ maxBtn.addEventListener('click', function () {
 });
 
 okButton.addEventListener('click', function () {
-  okBtn();
-  btn50.classList.add('hidden');
-  btn100.classList.add('hidden');
-  btn500.classList.add('hidden');
-  btn1000.classList.add('hidden');
-  btn5000.classList.add('hidden');
-  maxBtn.classList.add('hidden');
-  posSell.classList.add('hidden');
+  if (!isNaN(bellEl.value) && bellEl.value !== '') {
+    okBtn();
+    btn50.classList.add('hidden');
+    btn100.classList.add('hidden');
+    btn500.classList.add('hidden');
+    btn1000.classList.add('hidden');
+    btn5000.classList.add('hidden');
+    maxBtn.classList.add('hidden');
+    posSell.classList.add('hidden');
+  }
 });
 
 const sellStock = function () {
