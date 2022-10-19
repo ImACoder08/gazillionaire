@@ -2,6 +2,10 @@
   font-family: 'lemon';
   src: url(fonts/animeace2_bld.otf);
 }
+@font-face {
+  font-family: 'cursive';
+  src: url(fonts/GeminiMoon.otf);
+}
 
 .box {
   font-size: 21.9px;
@@ -238,10 +242,11 @@ body {
 }
 
 .sign {
+  font-family: 'cursive', sans-serif;
   position: absolute;
-  right: -270px;
-  top: -60px;
-  scale: 0.5;
+  right: 300px;
+  top: 50px;
+  scale: 5;
 }
 
 .meme {

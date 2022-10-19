@@ -1,8 +1,8 @@
 //Player Count
 let players;
 const playerCount = function () {
-  players = Number(prompt('How many Players? (2-8)'));
-  if (players > 8 || players < 2) {
+  players = Number(prompt('How many Players? (1-12)'));
+  if (players > 12 || players < 1) {
     playerCount();
   }
 };
@@ -754,8 +754,11 @@ const player4 = new Player();
 const player5 = new Player();
 const player6 = new Player();
 const player7 = new Player();
-
 const player8 = new Player();
+const player9 = new Player();
+const player10 = new Player();
+const player11 = new Player();
+const player12 = new Player();
 
 let currentPlayer = player1;
 
@@ -1915,6 +1918,10 @@ const playerTrack = [
   player6,
   player7,
   player8,
+  player9,
+  player10,
+  player11,
+  player12,
 ];
 
 let type = '';
@@ -1952,7 +1959,6 @@ const pickHouseBusiness = function () {
   for (let i = 0; i <= houseTypes.length; i++) {
     if (dice == i) {
       type = houseTypes[i];
-      console.log('hello');
     }
   }
 
@@ -1971,7 +1977,7 @@ const next = function () {
     modal.textContent = 'You have failed the berserk challenge';
     currentPlayer.proffession.cash = 0;
   }
-  if (playerN < players - 1) {
+  if (playerN < players - 1 && players !== 1) {
     playerN += 1;
 
     currentPlayer = playerTrack[playerN];
@@ -2017,6 +2023,7 @@ const next = function () {
     }
     memeEl.classList.add('hidden');
   } else {
+    memeEl.classList.add('hidden');
     dice = Math.trunc(Math.random() * 3) + 1;
 
     if (dice == 3) {
@@ -2715,7 +2722,7 @@ let memes = [
   '25.jpg',
   '26.jpg',
   '27.jpg',
-  '28jpg',
+  '28.jpg',
   '29.jpg',
   '30.jpg',
   '31.jpg',
@@ -2739,7 +2746,8 @@ let memes = [
   '49.jpg',
 ];
 let memeEl = document.querySelector('.meme');
+memeEl.classList.add('hidden');
 const changeImage = function (newImage) {
   memeEl.src = newImage;
+  console.log(newImage);
 };
-changeImage(memes[Math.trunc(Math.random() * imageCount)]);
