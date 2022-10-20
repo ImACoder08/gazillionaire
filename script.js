@@ -1375,7 +1375,20 @@ maxBtn.addEventListener('click', function () {
     bellEl.value = currentPlayer.proffession.lymp4u;
   }
 });
-
+bellEl.addEventListener('keypress', function (event) {
+  if (event.key === 'Enter') {
+    if (!isNaN(bellEl.value) && bellEl.value !== '') {
+      okBtn();
+      btn50.classList.add('hidden');
+      btn100.classList.add('hidden');
+      btn500.classList.add('hidden');
+      btn1000.classList.add('hidden');
+      btn5000.classList.add('hidden');
+      maxBtn.classList.add('hidden');
+      posSell.classList.add('hidden');
+    }
+  }
+});
 okButton.addEventListener('click', function () {
   if (!isNaN(bellEl.value) && bellEl.value !== '') {
     okBtn();
@@ -1697,19 +1710,33 @@ okLoan.addEventListener('click', function () {
   loanValue.classList.add('hidden');
   if (
     getting &&
-    totalStock * 1000 + 10000 >= parseInt(loanValue.value) &&
+    totalStock * 300 + 10000 >= parseInt(loanValue.value) &&
     parseInt(loanValue.value) > 0
   ) {
-    currentPlayer.currentLoan += parseInt(loanValue.value);
-    currentPlayer.proffession.totalExpenses += Math.round(
-      parseInt(loanValue.value) * interest
-    );
-    currentPlayer.proffession.cashFlow -= Math.round(
-      parseInt(loanValue.value) * interest
-    );
-    currentPlayer.proffession.cash += parseInt(loanValue.value);
-    if (currentPlayer.currentLoan > 0) {
-      paybackLoan.classList.remove('hidden');
+    if (mode !== 1) {
+      currentPlayer.currentLoan += parseInt(loanValue.value);
+      currentPlayer.proffession.totalExpenses += Math.round(
+        parseInt(loanValue.value) * interest
+      );
+      currentPlayer.proffession.cashFlow -= Math.round(
+        parseInt(loanValue.value) * interest
+      );
+      currentPlayer.proffession.cash += parseInt(loanValue.value);
+      if (currentPlayer.currentLoan > 0) {
+        paybackLoan.classList.remove('hidden');
+      }
+    } else if (parseInt(loanValue.value) + currentPlayer.proffession.cash < 1) {
+      currentPlayer.currentLoan += parseInt(loanValue.value);
+      currentPlayer.proffession.totalExpenses += Math.round(
+        parseInt(loanValue.value) * interest
+      );
+      currentPlayer.proffession.cashFlow -= Math.round(
+        parseInt(loanValue.value) * interest
+      );
+      currentPlayer.proffession.cash += parseInt(loanValue.value);
+      if (currentPlayer.currentLoan > 0) {
+        paybackLoan.classList.remove('hidden');
+      }
     }
   } else if (
     paying &&
@@ -1732,6 +1759,66 @@ okLoan.addEventListener('click', function () {
   fillIn(currentPlayer);
   getting = false;
   paying = false;
+});
+loanValue.addEventListener('keypress', function (e) {
+  if (e.key === 'Enter') {
+    okLoan.classList.add('hidden');
+    loanValue.classList.add('hidden');
+    if (
+      getting &&
+      totalStock * 300 + 10000 >= parseInt(loanValue.value) &&
+      parseInt(loanValue.value) > 0
+    ) {
+      if (mode !== 1) {
+        currentPlayer.currentLoan += parseInt(loanValue.value);
+        currentPlayer.proffession.totalExpenses += Math.round(
+          parseInt(loanValue.value) * interest
+        );
+        currentPlayer.proffession.cashFlow -= Math.round(
+          parseInt(loanValue.value) * interest
+        );
+        currentPlayer.proffession.cash += parseInt(loanValue.value);
+        if (currentPlayer.currentLoan > 0) {
+          paybackLoan.classList.remove('hidden');
+        }
+      } else if (
+        parseInt(loanValue.value) + currentPlayer.proffession.cash <
+        1
+      ) {
+        currentPlayer.currentLoan += parseInt(loanValue.value);
+        currentPlayer.proffession.totalExpenses += Math.round(
+          parseInt(loanValue.value) * interest
+        );
+        currentPlayer.proffession.cashFlow -= Math.round(
+          parseInt(loanValue.value) * interest
+        );
+        currentPlayer.proffession.cash += parseInt(loanValue.value);
+        if (currentPlayer.currentLoan > 0) {
+          paybackLoan.classList.remove('hidden');
+        }
+      }
+    } else if (
+      paying &&
+      parseInt(loanValue.value) <= currentPlayer.proffession.cash &&
+      currentPlayer.currentLoan >= parseInt(loanValue.value)
+    ) {
+      currentPlayer.currentLoan -= parseInt(loanValue.value);
+      currentPlayer.proffession.totalExpenses -= Math.round(
+        parseInt(loanValue.value) * interest
+      );
+      currentPlayer.proffession.cashFlow += Math.round(
+        parseInt(loanValue.value) * interest
+      );
+      Math.round(currentPlayer.proffession.cashFlow);
+      currentPlayer.proffession.cash -= parseInt(loanValue.value);
+      if (currentPlayer.currentLoan == 0) {
+        paybackLoan.classList.add('hidden');
+      }
+    }
+    fillIn(currentPlayer);
+    getting = false;
+    paying = false;
+  }
 });
 let getting = false;
 let paying = false;
@@ -1989,6 +2076,7 @@ const next = function () {
       fillIn(playerTrack[playerN]);
       if (mode == 1) {
         currentPlayer.proffession.cashFlow = 0;
+        currentPlayer.proffession.cash = 1000;
       }
     } else {
       dice = Math.trunc(Math.random() * 3) + 1;
@@ -2062,6 +2150,7 @@ const next = function () {
     market();
     if (mode == 1 && (turn == 1 || turn == 2)) {
       currentPlayer.proffession.cashFlow = 0;
+      currentPlayer.proffession.cash = 1000;
     }
     currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
 
@@ -2124,7 +2213,10 @@ nextBtn.addEventListener('click', function () {
         currentPlayer.proffession.totalExpenses) *
       1;
     doodad18.doodadCost =
-      currentPlayer.proffession.cashFlow * Math.trunc(Math.random() * 12) + 1;
+      (currentPlayer.proffession.salary -
+        currentPlayer.proffession.totalExpenses) *
+        Math.trunc(Math.random() * 12) +
+      1;
     doodad19.doodadCost =
       (currentPlayer.proffession.salary -
         currentPlayer.proffession.totalExpenses) *
