@@ -2079,7 +2079,7 @@ const next = function () {
       fillIn(playerTrack[playerN]);
       if (mode == 1) {
         currentPlayer.proffession.cashFlow = 0;
-        currentPlayer.proffession.cash = 1000;
+        currentPlayer.proffession.cash = 10000;
       }
     } else {
       dice = Math.trunc(Math.random() * 3) + 1;
@@ -2153,7 +2153,7 @@ const next = function () {
     market();
     if (mode == 1 && (turn == 1 || turn == 2)) {
       currentPlayer.proffession.cashFlow = 0;
-      currentPlayer.proffession.cash = 1000;
+      currentPlayer.proffession.cash = 10000;
     }
     currentPlayer.proffession.cash += currentPlayer.proffession.cashFlow;
 
