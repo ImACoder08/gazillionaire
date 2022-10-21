@@ -1725,7 +1725,10 @@ okLoan.addEventListener('click', function () {
       if (currentPlayer.currentLoan > 0) {
         paybackLoan.classList.remove('hidden');
       }
-    } else if (parseInt(loanValue.value) + currentPlayer.proffession.cash < 1) {
+    } else if (
+      parseInt(loanValue.value) + currentPlayer.proffession.cash <
+      10000
+    ) {
       currentPlayer.currentLoan += parseInt(loanValue.value);
       currentPlayer.proffession.totalExpenses += Math.round(
         parseInt(loanValue.value) * interest
@@ -1783,7 +1786,7 @@ loanValue.addEventListener('keypress', function (e) {
         }
       } else if (
         parseInt(loanValue.value) + currentPlayer.proffession.cash <
-        1
+        10000
       ) {
         currentPlayer.currentLoan += parseInt(loanValue.value);
         currentPlayer.proffession.totalExpenses += Math.round(
