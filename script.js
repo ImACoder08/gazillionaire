@@ -44,6 +44,12 @@ if (mode == 'hard') {
 if (mode == 'berserk') {
   mode = 1;
 }
+let interest;
+if (mode == 1) {
+  interest = 0.1;
+} else {
+  interest = 0.2;
+}
 let choose;
 const chooseMemes = function () {
   choose = String(prompt('Memes?'));
@@ -1014,7 +1020,7 @@ const fillIn = function (player) {
   playerNEl.textContent = player.name;
   proffessionEl.textContent = player.proffession.proffession;
   salaryEl.textContent = player.proffession.salary;
-  interestEl.textContent = '20%';
+  interestEl.textContent = interest * 100 + '%';
 
   realBusinessEl1.textContent = player.proffession.realBusiness1;
   realBusinessEl2.textContent = player.proffession.realBusiness2;
@@ -1698,7 +1704,7 @@ buyOk4uEl.addEventListener('click', function () {
   }
   buyStock();
 });
-let interest = 0.2;
+
 let totalStock =
   currentPlayer.proffession.myt4u +
   currentPlayer.proffession.gro4u +
