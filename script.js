@@ -2051,9 +2051,27 @@ let houseTypes = [
   'Ranch',
   '8-Plex',
   'Grocery Store',
+  'GamePause',
+  'SpaceY',
+  'Hedge Fund',
+  'Fish Hatchery',
+  'Nuclear Reactor',
+  'White Cat Hackers',
+  'Block Craft',
+  'Robricks',
+  'Fortnight',
+  'Beast Hotdog',
+  'Carpet Cleaners',
+  'Construction Site',
+  '10 acres',
+  'Nuclear Bombs Testers',
+  'Paramount minus',
+  'Disney minues',
+  'Among them',
 ];
+
 const pickHouseBusiness = function () {
-  dice = Math.trunc(Math.random() * 24) + 1;
+  dice = Math.trunc(Math.random() * houseTypes.length) + 1;
   for (let i = 0; i <= houseTypes.length; i++) {
     if (dice == i) {
       type = houseTypes[i];
@@ -2230,10 +2248,15 @@ nextBtn.addEventListener('click', function () {
       (currentPlayer.proffession.salary -
         currentPlayer.proffession.totalExpenses) *
       4;
-    doodad16.doodadCost =
-      (currentPlayer.proffession.salary -
-        currentPlayer.proffession.totalExpenses) *
-      2;
+    if (currentPlayer.name !== 'batman') {
+      doodad16.doodadCost =
+        (currentPlayer.proffession.salary -
+          currentPlayer.proffession.totalExpenses) *
+        2;
+    } else {
+      doodad16.doodadCost = 0;
+    }
+
     if (currentPlayer.proffession == doctor) {
       doodad2.doodad = 'You take your family to a nice steakhouse';
       doodad2.doodadCost = 600;
