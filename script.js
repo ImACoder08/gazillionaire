@@ -2068,6 +2068,7 @@ let houseTypes = [
   'Paramount minus',
   'Disney minues',
   'Among them',
+  'Mint',
 ];
 
 const pickHouseBusiness = function () {
